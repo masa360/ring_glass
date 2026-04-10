@@ -23,7 +23,7 @@
       --gray4:      rgba(0,70,130,0.68);
       --text:       #0a3d5a;
       --yellow:     #009ec5;
-      --bg-body:    #f0f9ff;
+      --bg-body:    #f5f5f7;
       --bg-surface: #ffffff;
 
       --pad-v:  clamp(64px, 9vw, 120px);
@@ -135,24 +135,29 @@
     /* =====================================================
        WORKS セクション（実績 - 写真入り）
        ===================================================== */
+    /* 幾何学パーツ 背景レイヤー */
+    #geo-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    section, .page-nav {
+      position: relative;
+      z-index: 2;
+    }
+    .geo-part {
+      position: absolute;
+      top: 0; left: 0;
+      opacity: 0.5;
+      pointer-events: none;
+      will-change: transform;
+      mix-blend-mode: multiply;
+    }
+
     .works-section {
       padding: var(--pad-v) 0;
-      background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('../back1.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
-    .works-section .sec-title {
-      color: var(--white);
-    }
-
-    .works-section .sec-sub {
-      color: rgba(255,255,255,.75);
-    }
-
-    .works-section .sec-label {
-      color: var(--yellow);
     }
 
     .works-list {
@@ -402,6 +407,21 @@
   </style>
 </head>
 <body>
+  <!-- 幾何学パーツ背景 -->
+  <div id="geo-bg" aria-hidden="true">
+    <img class="geo-part" src="../image-parts/unnamed%20(1).png"  data-ox="8"  data-oy="15" style="width:100px">
+    <img class="geo-part" src="../image-parts/unnamed%20(2).png"  data-ox="92" data-oy="72" style="width:72px">
+    <img class="geo-part" src="../image-parts/unnamed%20(3).png"  data-ox="55" data-oy="88" style="width:120px">
+    <img class="geo-part" src="../image-parts/unnamed%20(4).png"  data-ox="80" data-oy="10" style="width:80px">
+    <img class="geo-part" src="../image-parts/unnamed%20(5).png"  data-ox="28" data-oy="58" style="width:90px">
+    <img class="geo-part" src="../image-parts/unnamed%20(6).png"  data-ox="16" data-oy="38" style="width:65px">
+    <img class="geo-part" src="../image-parts/unnamed%20(7).png"  data-ox="72" data-oy="25" style="width:110px">
+    <img class="geo-part" src="../image-parts/unnamed%20(8).png"  data-ox="88" data-oy="54" style="width:75px">
+    <img class="geo-part" src="../image-parts/unnamed%20(9).png"  data-ox="10" data-oy="80" style="width:85px">
+    <img class="geo-part" src="../image-parts/unnamed%20(10).png" data-ox="45" data-oy="6"  style="width:95px">
+    <img class="geo-part" src="../image-parts/unnamed%20(11).png" data-ox="62" data-oy="94" style="width:68px">
+  </div>
+
   <!-- ナビゲーション -->
   <div class="page-nav">
     <div class="wrap">
@@ -711,6 +731,71 @@
       if (!img.src || img.src === window.location.href) img.style.display = 'none';
       img.addEventListener('error', () => img.style.display = 'none');
     });
+  </script>
+
+  <!-- 幾何学パーツ スクロール収束アニメーション -->
+  <script>
+    (function() {
+      const parts = Array.from(document.querySelectorAll('#geo-bg .geo-part'));
+      if (!parts.length) return;
+
+      const geoData = parts.map(el => ({
+        el,
+        ox: parseFloat(el.dataset.ox) || 50,
+        oy: parseFloat(el.dataset.oy) || 50,
+      }));
+
+      const setPos = (el, nx, ny) => {
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const w  = el.offsetWidth  || parseInt(el.style.width)  || 80;
+        const h  = el.offsetHeight || w;
+        const tx = nx / 100 * vw - w / 2;
+        const ty = ny / 100 * vh - h / 2;
+        el.style.transform = `translate(${tx}px,${ty}px)`;
+      };
+
+      const sections = Array.from(document.querySelectorAll('section'));
+      let rafId = null;
+      let lastGather = -1;
+
+      const update = () => {
+        const vh = window.innerHeight;
+        let maxGather = 0;
+
+        sections.forEach(sec => {
+          const r      = sec.getBoundingClientRect();
+          const secMid = r.top + r.height / 2;
+          const dist   = Math.abs(secMid - vh / 2);
+          const g      = Math.max(0, 1 - dist / (vh * 0.65));
+          if (g > maxGather) maxGather = g;
+        });
+
+        const t = maxGather;
+        const gather = t * t * (3 - 2 * t);
+
+        if (Math.abs(gather - lastGather) < 0.002) { rafId = null; return; }
+        lastGather = gather;
+
+        geoData.forEach(({ el, ox, oy }) => {
+          const nx = ox + (50 - ox) * gather;
+          const ny = oy + (50 - oy) * gather;
+          setPos(el, nx, ny);
+        });
+
+        rafId = null;
+      };
+
+      geoData.forEach(({ el, ox, oy }) => setPos(el, ox, oy));
+      window.addEventListener('load', update);
+      window.addEventListener('scroll', () => {
+        if (!rafId) rafId = requestAnimationFrame(update);
+      }, { passive: true });
+      window.addEventListener('resize', () => {
+        if (!rafId) rafId = requestAnimationFrame(update);
+      }, { passive: true });
+      update();
+    })();
   </script>
 </body>
 </html>
