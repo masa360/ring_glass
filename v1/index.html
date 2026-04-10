@@ -61,7 +61,7 @@
     ],
     "foundingDate": "2026-01",
     "areaServed": "JP",
-    "serviceType": ["イベント運営代行", "スポーツ催事運営", "多言語スタッフ派遣", "ケータリング"]
+    "serviceType": ["イベント企画・制作", "イベント運営管理", "ディレクター・ADサポート", "語学対応スタッフ", "スタッフ手配"]
   }
   </script>
 
@@ -82,20 +82,15 @@
       推奨: 1920×1080px 以上
       目印: /* ★ HERO BG */
 
-  【2】実績写真 (6枚)
+  【2】実績写真 (7枚)
       <img class="work-img"> の src を差し替え
       推奨: 横800×縦600px (4:3)
-      目印: ★ WORK PHOTO 1〜6
+      目印: ★ WORK PHOTO 1〜7
 
-  【3】ギャラリー写真 (8枚)
-      <img class="gal-img"> の src を差し替え
-      推奨: 800×800px または 800×600px
-      目印: ★ GALLERY PHOTO 1〜8
-
-  【4】サービス写真 (6枚)
+  【3】サービス写真 (5枚)
       <img class="svc-img"> の src を差し替え
       推奨: 600×600px (正方形)
-      目印: ★ SERVICE PHOTO 1〜6
+      目印: ★ SERVICE PHOTO 1〜5
 
   ★★★★★★★★★★★★★★★★★★★★★★★
   -->
@@ -132,8 +127,6 @@
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
       background-color: var(--bg-body);
-      background-image: radial-gradient(circle, rgba(0,160,210,0.12) 1px, transparent 1px);
-      background-size: 28px 28px;
       color: var(--text);
       font-family: 'Noto Sans JP', sans-serif;
       font-weight: 300;
@@ -288,15 +281,6 @@
       background: var(--yellow);
       flex-shrink: 0;
     }
-    /* ダーク背景上の日本語 */
-    .gallery-section .sec-sub,
-    .gallery-section .sec-sub::before {
-      color: rgba(255,255,255,.85);
-      background: var(--yellow);  /* ::before only */
-    }
-    .gallery-section .sec-sub { color: rgba(255,255,255,.85); }
-    .gallery-section .sec-sub::before { background: var(--yellow); }
-
     /* セクションヘッダー */
     .sec-head {
       margin-bottom: clamp(36px, 5vw, 60px);
@@ -1003,15 +987,44 @@
     }
 
     /* =====================================================
+       SERVICE TAGLINE — 事業説明
+       ===================================================== */
+    .service-tagline-section {
+      padding: clamp(40px, 7vw, 80px) 0;
+      background: linear-gradient(rgba(4,20,48,.82), rgba(4,20,48,.82)), url('../back1.png') center/cover no-repeat fixed;
+      border-top: none;
+      border-bottom: none;
+    }
+    .service-tagline-text { color: rgba(255,255,255,.92) !important; }
+    .service-tagline-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .service-tagline-text {
+      font-size: clamp(18px, 4vw, 32px);
+      font-weight: 600;
+      color: #1a1a1a;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+
+    /* =====================================================
        SERVICE セクション
        ===================================================== */
     .service-section {
       padding: var(--pad-v) 0;
-      background: var(--bg-body);
+      background: linear-gradient(rgba(4,20,48,.78), rgba(4,20,48,.78)), url('../back2.png') center/cover no-repeat fixed;
     }
+    .service-section .sec-title,
+    .service-section .sec-label,
+    .service-section .sec-sub { color: rgba(255,255,255,.9); }
+    .service-section .more-link { color: var(--yellow); }
     .svc-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 3px;
     }
     .svc-card {
@@ -1108,224 +1121,24 @@
       padding: 2px 8px;
     }
 
-    /* =====================================================
-       WORKS セクション（2列カードグリッド）
-       ===================================================== */
-    .works-section {
-      padding: var(--pad-v) 0;
-      background: var(--gray1);
-    }
-    .works-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .work-card {
-      display: flex;
-      flex-direction: column-reverse;
-      background: var(--bg-surface);
-      overflow: hidden;
-      border: 1px solid var(--gray2);
-      transition: border-color .3s, box-shadow .3s;
-    }
-    .work-card:hover {
-      border-color: var(--yellow);
-      box-shadow: 0 6px 28px rgba(0,0,0,.32);
-    }
-    /* 画像エリア（上） */
-    .work-img-col {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      background: var(--gray2);
-      flex-shrink: 0;
-    }
-    .work-img {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform .65s var(--ease);
-      filter: grayscale(12%);
-    }
-    .work-card:hover .work-img { transform: scale(1.05); }
-    .work-img-ph {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .work-card:nth-child(1) .work-img-ph { background: linear-gradient(135deg, #9ed5f0 0%, #b8e5fa 100%); }
-    .work-card:nth-child(2) .work-img-ph { background: linear-gradient(135deg, #a5d8f2 0%, #bcecfb 100%); }
-    .work-card:nth-child(3) .work-img-ph { background: linear-gradient(135deg, #92ceec 0%, #aadff8 100%); }
-    .work-card:nth-child(4) .work-img-ph { background: linear-gradient(135deg, #9cd4ee 0%, #b5e6fb 100%); }
-    .work-card:nth-child(5) .work-img-ph { background: linear-gradient(135deg, #88c8ea 0%, #a5dcf8 100%); }
-    .work-card:nth-child(6) .work-img-ph { background: linear-gradient(135deg, #98d0f0 0%, #b2e4fa 100%); }
-    .work-ph-txt {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: rgba(0,100,160,.30);
-    }
-    /* テキストエリア（下） */
-    .work-body {
-      padding: 22px 24px 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      border-top: 3px solid transparent;
-      transition: border-color .3s;
-    }
-    .work-card:hover .work-body { border-top-color: var(--yellow); }
-    .work-cat {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      margin-bottom: 8px;
-    }
-    .work-cat::before {
-      content: '';
-      width: 12px; height: 1.5px;
-      background: var(--yellow);
-      flex-shrink: 0;
-    }
-    .work-title-en {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(11px, 1.3vw, 14px);
-      font-weight: 400;
-      line-height: 1.2;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--gray3);
-    }
-    .work-title-jp {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: clamp(16px, 1.9vw, 22px);
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: .02em;
-      line-height: 1.35;
-      margin-top: 3px;
-    }
-    .work-desc {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--gray4);
-      line-height: 1.85;
-    }
-    .work-more {
-      margin-top: 14px;
-    }
-    @media (max-width: 1024px) {
-      .works-list { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 700px) {
-      .works-list { grid-template-columns: 1fr; gap: 12px; }
-    }
-
-    /* =====================================================
-       ABOUT セクション
-       ===================================================== */
-    .about-section {
-      padding: var(--pad-v) 0;
-      background: var(--bg-body);
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(48px, 8vw, 110px);
-      align-items: start;
-    }
-    .co-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 32px;
-    }
-    .co-table tr {
-      border-bottom: 1px solid var(--gray2);
-    }
-    .co-table tr:first-child { border-top: 1px solid var(--gray2); }
-    .co-table tr:hover { background: var(--gray1); }
-    .co-table th {
-      width: 34%;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--gray3);
-      padding: 16px 14px 16px 0;
-      text-align: left;
-      vertical-align: top;
-    }
-    .co-table td {
-      font-size: clamp(12px, 1.3vw, 14px);
-      color: var(--text);
-      padding: 16px 0;
-      line-height: 1.9;
-      vertical-align: top;
-    }
-    .co-table td a:hover { color: var(--yellow); text-decoration: underline; }
-
-    /* 実績リスト */
-    .track-list {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      margin-top: 28px;
-    }
-    .track-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 16px 18px;
-      background: var(--gray1);
-      border-left: 3px solid transparent;
-      transition: border-color .22s, background .22s, padding-left .22s var(--ease);
-    }
-    .track-item:hover {
-      border-left-color: var(--yellow);
-      background: #b8e0f0;
-      padding-left: 24px;
-    }
-    .track-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--yellow);
-      flex-shrink: 0;
-      margin-top: 7px;
-    }
-    .track-body { display: flex; flex-direction: column; gap: 2px; }
-    .track-main {
-      font-size: clamp(13px, 1.5vw, 15px);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.4;
-    }
-    .track-detail {
-      font-size: 11px;
-      color: var(--gray3);
-      letter-spacing: .03em;
-      line-height: 1.5;
-    }
+    /* WORKS セクション・ABOUT セクションは about.html に移動 */
 
     /* =====================================================
        MESSAGE セクション
        ===================================================== */
     .message-section {
       padding: var(--pad-v) 0;
-      background: var(--gray1);
+      background: linear-gradient(rgba(4,20,48,.80), rgba(4,20,48,.80)), url('../back2.png') center/cover no-repeat fixed;
     }
+    .message-section .sec-title,
+    .message-section .sec-label,
+    .message-section .sec-sub { color: rgba(255,255,255,.9); }
+    .message-section .msg-quote { color: rgba(255,255,255,.85); }
+    .message-section .msg-sig-name,
+    .message-section .msg-sig-role,
+    .message-section .msg-sig-en { color: rgba(255,255,255,.7); }
+    .message-section .msg-chip { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.65); }
+    .message-section .msg-profile-chips { border-top-color: rgba(255,255,255,.12); }
     .msg-grid {
       display: grid;
       grid-template-columns: 5fr 7fr;
@@ -1473,88 +1286,30 @@
     }
 
     /* =====================================================
-       GALLERY セクション
-       ===================================================== */
-    .gallery-section {
-      padding: var(--pad-v) 0;
-      background: #073050;
-    }
-    .gallery-section .sec-label { color: var(--yellow); }
-    .gallery-section .sec-sub { color: rgba(255,255,255,.75); }
-    .gal-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 240px);
-      gap: 3px;
-    }
-    .gal-item {
-      position: relative;
-      overflow: hidden;
-      background: #093460;
-    }
-    .gal-item:first-child {
-      grid-column: span 2;
-      grid-row: span 2;
-    }
-    .gal-ph {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .gal-item:nth-child(1) .gal-ph { background: linear-gradient(145deg, #093462, #0c3c70); }
-    .gal-item:nth-child(2) .gal-ph { background: linear-gradient(145deg, #0c3868, #093060); }
-    .gal-item:nth-child(3) .gal-ph { background: linear-gradient(145deg, #083460, #0b3a6a); }
-    .gal-item:nth-child(4) .gal-ph { background: linear-gradient(145deg, #0a3668, #083262); }
-    .gal-item:nth-child(5) .gal-ph { background: linear-gradient(145deg, #083060, #0c3870); }
-    .gal-item:nth-child(6) .gal-ph { background: linear-gradient(145deg, #0b3468, #093265); }
-    .gal-item:nth-child(7) .gal-ph { background: linear-gradient(145deg, #083868, #0a3060); }
-    .gal-item:nth-child(8) .gal-ph { background: linear-gradient(145deg, #0c3268, #083462); }
-    .gal-ph-txt {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.18);
-    }
-    .gal-img {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform .65s var(--ease), filter .4s;
-      filter: grayscale(15%);
-    }
-    .gal-item:hover .gal-img { transform: scale(1.07); filter: none; }
-    .gal-ov {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,.52);
-      opacity: 0;
-      transition: opacity .3s;
-    }
-    .gal-item:hover .gal-ov { opacity: 1; }
-    .gal-cap {
-      position: absolute;
-      bottom: 12px; left: 14px; right: 14px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--white);
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity .3s, transform .3s var(--ease);
-    }
-    .gal-item:hover .gal-cap { opacity: 1; transform: none; }
-    .gal-more { margin-top: 40px; text-align: center; }
-
-    /* =====================================================
        CONTACT セクション
        ===================================================== */
     .contact-section {
       padding: var(--pad-v) 0;
-      background: var(--bg-body);
+      background: linear-gradient(rgba(4,20,48,.83), rgba(4,20,48,.83)), url('../back1.png') center/cover no-repeat fixed;
     }
+    .contact-section .sec-title,
+    .contact-section .sec-label,
+    .contact-section .sec-sub { color: rgba(255,255,255,.9); }
+    .contact-section label { color: rgba(255,255,255,.75); }
+    .contact-section input,
+    .contact-section select,
+    .contact-section textarea {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.2);
+      color: rgba(255,255,255,.9);
+    }
+    .contact-section input::placeholder,
+    .contact-section textarea::placeholder { color: rgba(255,255,255,.3); }
+    .contact-section .ci { background: rgba(255,255,255,.06); }
+    .contact-section .ci:hover { background: rgba(0,158,197,.15); border-left-color: var(--yellow); }
+    .contact-section .ci-lbl,
+    .contact-section .ci-val { color: rgba(255,255,255,.7); }
+    .contact-section .form-note { color: rgba(255,255,255,.45); }
     .contact-grid {
       display: grid;
       grid-template-columns: 5fr 6fr;
@@ -1647,6 +1402,128 @@
     }
 
     /* =====================================================
+       WORKS 自動横スクロール
+       ===================================================== */
+    .works-scroll-section {
+      padding: clamp(48px, 7vw, 88px) 0;
+      background: linear-gradient(rgba(4,20,48,.88), rgba(4,20,48,.88)), url('../back2.png') center/cover no-repeat fixed;
+      overflow: hidden;
+    }
+    .works-scroll-head {
+      max-width: var(--max-w);
+      margin: 0 auto clamp(28px, 4vw, 48px);
+      padding: 0 var(--pad-h);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .works-scroll-head .sec-label { color: var(--yellow); }
+    .works-scroll-head .sec-title { color: var(--white); }
+    .works-scroll-head .sec-sub   { color: rgba(255,255,255,.55); }
+    .works-scroll-head .more-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(0,158,197,.35);
+      transition: color .2s, border-color .2s;
+    }
+    .works-scroll-head .more-link:hover { color: #fff; border-color: #fff; }
+
+    /* トラック */
+    .works-track-wrap {
+      overflow: hidden;
+    }
+    .works-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: worksMarquee 48s linear infinite;
+    }
+    .works-track-wrap:hover .works-track { animation-play-state: paused; }
+    @keyframes worksMarquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* カード */
+    .wsc {
+      flex-shrink: 0;
+      width: 300px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      overflow: hidden;
+      transition: border-color .3s, transform .3s var(--ease);
+      cursor: default;
+    }
+    .wsc:hover {
+      border-color: rgba(0,158,197,.5);
+      transform: translateY(-4px);
+    }
+    .wsc-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(15%) brightness(.9);
+      transition: filter .5s, transform .5s var(--ease);
+    }
+    .wsc:hover .wsc-img { filter: grayscale(0%) brightness(1); transform: scale(1.04); }
+    .wsc-img-wrap {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .wsc-ph {
+      position: absolute;
+      inset: 0;
+      background: rgba(8,50,88,.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wsc-ph-icon { opacity: .3; }
+    .wsc-body {
+      padding: 18px 20px 22px;
+    }
+    .wsc-cat {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 8px;
+    }
+    .wsc-en {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 500;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .wsc-ja {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,.45);
+      letter-spacing: .05em;
+    }
+
+    /* =====================================================
        FOOTER
        ===================================================== */
     .footer {
@@ -1715,10 +1592,8 @@
 
     /* 重いセクションは画面内に入るまで描画を遅延 */
     .service-section,
-    .works-section,
-    .about-section,
+    .journal-section,
     .message-section,
-    .gallery-section,
     .contact-section,
     .footer {
       content-visibility: auto;
@@ -1731,25 +1606,17 @@
     @media (max-width: 1024px) {
       .svc-grid     { grid-template-columns: repeat(2, 1fr); }
       .footer-main  { grid-template-columns: 1fr 1fr; }
-      .journal-grid { grid-template-columns: repeat(2, 1fr); }
       .staff-grid   { grid-template-columns: repeat(4, 1fr); }
     }
     @media (max-width: 860px) {
       .nav-links, .nav-contact-btn { display: none; }
       .hamburger { display: flex; }
-      .about-grid, .msg-grid, .contact-grid { grid-template-columns: 1fr; }
+      .msg-grid, .contact-grid { grid-template-columns: 1fr; }
       .sec-head.row { flex-direction: column; align-items: flex-start; }
-      .gal-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-      }
-      .gal-item:first-child { grid-column: span 2; aspect-ratio: 16/7; min-height: 180px; }
-      .gal-item:not(:first-child) { min-height: 160px; }
       .hero-cats { display: none; }
       .stats-wrap { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 860px) {
-      .journal-grid { grid-template-columns: repeat(2, 1fr); }
       .staff-grid   { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 600px) {
@@ -1761,7 +1628,6 @@
       .news-items  { padding: 0 var(--pad-h) 0 16px; }
       .stats-wrap  { grid-template-columns: 1fr; }
       .news-track  { animation-duration: 22s; }
-      .journal-grid { grid-template-columns: 1fr; }
       .staff-grid  { grid-template-columns: repeat(2, 1fr); }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -1905,9 +1771,9 @@
     }
 
     /* =====================================================
-       サービス/ギャラリーカードのチルト
+       サービスカードのチルト
        ===================================================== */
-    .svc-card, .gal-item {
+    .svc-card {
       transition: transform .4s var(--ease), box-shadow .4s;
     }
 
@@ -2092,106 +1958,57 @@
     }
 
     /* =====================================================
-       ジャーナルセクション
+       ジャーナルセクション（本文は note のみ。サイト上に記事プレビューは出さない）
        ===================================================== */
     .journal-section {
       padding: var(--pad-v) 0;
-      background: var(--bg-body);
+      background: linear-gradient(rgba(4,20,48,.85), rgba(4,20,48,.85)), url('../back1.png') center/cover no-repeat fixed;
     }
-    .journal-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .jcard {
+    .journal-section .sec-title,
+    .journal-section .sec-label,
+    .journal-section .sec-sub { color: rgba(255,255,255,.9); }
+    .journal-content-wrapper {
       display: flex;
-      flex-direction: column;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .journal-note-panel {
+      flex: 1;
+      min-width: 280px;
+      max-width: 380px;
+      padding: clamp(28px, 4vw, 48px) clamp(24px, 4vw, 40px);
       background: var(--bg-surface);
       border: 1px solid var(--gray2);
-      overflow: hidden;
-      transition: box-shadow .3s, border-color .3s;
+      text-align: center;
+      border-radius: 8px;
     }
-    .jcard:hover {
-      border-color: var(--yellow);
-      box-shadow: 0 4px 20px rgba(0,0,0,.32);
-    }
-    .jcard-img-wrap {
-      position: relative;
-      aspect-ratio: 16/10;
-      background: var(--gray2);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .jcard-img-ph {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .jcard:nth-child(1) .jcard-img-ph { background: linear-gradient(135deg, #9ed5f0, #b8e5fa); }
-    .jcard:nth-child(2) .jcard-img-ph { background: linear-gradient(135deg, #a5d8f2, #bcecfb); }
-    .jcard:nth-child(3) .jcard-img-ph { background: linear-gradient(135deg, #92ceec, #aadff8); }
-    .jcard:nth-child(4) .jcard-img-ph { background: linear-gradient(135deg, #9cd4ee, #b5e6fb); }
-    .jcard:nth-child(5) .jcard-img-ph { background: linear-gradient(135deg, #88c8ea, #a5dcf8); }
-    .jcard:nth-child(6) .jcard-img-ph { background: linear-gradient(135deg, #95d0ef, #b0e2f8); }
-    .jcard:nth-child(7) .jcard-img-ph { background: linear-gradient(135deg, #a0d4f0, #b8e8fc); }
-    .jcard:nth-child(8) .jcard-img-ph { background: linear-gradient(135deg, #90ccec, #acdef8); }
-    .jcard-img-real {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform .55s var(--ease);
-    }
-    .jcard:hover .jcard-img-real { transform: scale(1.06); }
-    .jcard-ph-txt {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(0,100,160,.30);
-    }
-    .jcard-body {
-      padding: 16px 16px 18px;
+    .journal-instagram-panel {
       display: flex;
-      flex-direction: column;
-      flex: 1;
+      justify-content: center;
+      flex: 0 1 auto;
     }
-    .jcard-meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
+    .journal-instagram-panel iframe {
+      max-width: 100%;
+      border-radius: 8px;
     }
-    .jcard-cat {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--black);
-      background: var(--yellow);
-      padding: 2px 8px;
-      flex-shrink: 0;
-    }
-    .jcard-date {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      color: var(--gray3);
-      letter-spacing: .04em;
-    }
-    .jcard-title {
+    .journal-note-lead {
       font-family: 'Noto Sans JP', sans-serif;
-      font-size: clamp(12px, 1.3vw, 14px);
-      font-weight: 700;
+      font-size: clamp(14px, 1.5vw, 16px);
       color: var(--text);
-      line-height: 1.55;
-      transition: color .2s;
+      line-height: 1.85;
+      margin: 0 0 24px;
     }
-    .jcard:hover .jcard-title { color: var(--yellow); }
-    .jcard-excerpt {
-      margin-top: 8px;
-      font-size: 11px;
-      color: var(--gray4);
-      line-height: 1.8;
-      flex: 1;
+    .journal-note-lead strong {
+      font-weight: 700;
+      color: var(--black);
+    }
+    .journal-note-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* =====================================================
@@ -2454,10 +2271,8 @@
 
     <ul class="nav-links">
       <li><a href="#service">SERVICE<span class="nav-ja">事業内容</span></a></li>
-      <li><a href="#works">WORKS<span class="nav-ja">実績</span></a></li>
-      <li><a href="#about">ABOUT<span class="nav-ja">会社概要</span></a></li>
+      <li><a href="about.html">ABOUT<span class="nav-ja">実績・会社概要</span></a></li>
       <li><a href="#message">MESSAGE<span class="nav-ja">代表メッセージ</span></a></li>
-      <li><a href="#gallery">GALLERY<span class="nav-ja">ギャラリー</span></a></li>
       <li><a href="blog.html">BLOG<span class="nav-ja">ブログ</span></a></li>
       <li><a href="recruit.html">RECRUIT<span class="nav-ja">採用情報</span></a></li>
       <li><a href="#contact">CONTACT<span class="nav-ja">お問い合わせ</span></a></li>
@@ -2591,43 +2406,13 @@
   <div class="hero-content">
     <p class="hero-eyebrow">Event Operation &nbsp;·&nbsp; Sports &nbsp;·&nbsp; Entertainment &nbsp;·&nbsp; Multilingual Staff</p>
     <p class="hero-sub" style="margin-top:0; margin-bottom:28px;">
-      心震わせる感動の空間へ。一緒に奇跡を見届けよう。<br>
-      エンタテイメントで笑顔と感動と希望を届けます。
+      エンタテイメントで笑顔と感動を、<br>
+      希望を届ける会社を運営しています！<br>
+      いままでにないエンタメを考案し、<br>
+      多くの皆様に届けます！
     </p>
-    <div class="hero-actions">
-      <a href="#service" class="btn-yellow">事業内容を見る</a>
-      <a href="#contact" class="btn-outline-light">無料でご相談</a>
-    </div>
   </div>
 
-  <!-- イベントカテゴリ縦リスト -->
-  <div class="hero-cat-list">
-    <div class="hero-cat-line">
-      <span class="hero-cat-num">01</span>
-      <span class="hero-cat-en">SPORTS FESTIVAL</span>
-      <span class="hero-cat-ja">スポーツ催事・運営代行</span>
-    </div>
-    <div class="hero-cat-line">
-      <span class="hero-cat-num">02</span>
-      <span class="hero-cat-en">LIVE EVENT</span>
-      <span class="hero-cat-ja">コンサート・ライブ運営</span>
-    </div>
-    <div class="hero-cat-line">
-      <span class="hero-cat-num">03</span>
-      <span class="hero-cat-en">INTERNATIONAL EVENT</span>
-      <span class="hero-cat-ja">国際イベント・多言語対応</span>
-    </div>
-    <div class="hero-cat-line">
-      <span class="hero-cat-num">04</span>
-      <span class="hero-cat-en">EXPO &amp; WORLD FAIR</span>
-      <span class="hero-cat-ja">博覧会・展示会運営</span>
-    </div>
-    <div class="hero-cat-line">
-      <span class="hero-cat-num">05</span>
-      <span class="hero-cat-en">ILLUMINATION &amp; OUTDOOR</span>
-      <span class="hero-cat-ja">イルミネーション・屋外イベント</span>
-    </div>
-  </div>
 
   <!-- スクロール -->
   <div class="hero-scroll">
@@ -2637,120 +2422,19 @@
 </section>
 
 <!-- =====================================================
+     SERVICE TAGLINE — 事業説明
+     ===================================================== -->
+<section class="service-tagline-section">
+  <div class="wrap">
+    <div class="service-tagline-content">
+      <p class="service-tagline-text">関西エリア中心でイベントのプロモーションから運営管理までお任せください</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
      NEWS — お知らせ（縦リスト）
      ===================================================== -->
-<section class="news-section" id="news">
-  <div class="wrap">
-    <div class="sec-head row rv">
-      <div>
-        <p class="sec-label">News</p>
-        <h2 class="sec-title">LATEST NEWS</h2>
-        <p class="sec-sub">お知らせ</p>
-      </div>
-      <a href="#" class="more-link rv d2">すべてのお知らせ <span class="arr">→</span></a>
-    </div>
-    <ul class="news-list rv">
-      <li class="news-list-item">
-        <span class="nl-date">2026.04</span>
-        <span class="nl-tag">News</span>
-        <span class="nl-text">公式ウェブサイトを公開しました</span>
-        <span class="nl-arr">→</span>
-      </li>
-      <li class="news-list-item">
-        <span class="nl-date">2026.02</span>
-        <span class="nl-tag">SNS</span>
-        <span class="nl-text">公式Instagramを運用開始しました</span>
-        <span class="nl-arr">→</span>
-      </li>
-      <li class="news-list-item">
-        <span class="nl-date">2026.01</span>
-        <span class="nl-tag">Company</span>
-        <span class="nl-text">株式会社リングクラス 設立</span>
-        <span class="nl-arr">→</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- =====================================================
-     CLIENT LOGOS — 取引先・実績
-     ===================================================== -->
-<div class="clients-section">
-  <p class="clients-label">Our Clients &amp; Partners</p>
-  <!-- 1行目 -->
-  <div class="client-row">
-    <div class="client-track" id="ct1">
-      <div class="logo-box"><span class="logo-box-txt">Client 01</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 02</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 03</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 04</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 05</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 06</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 07</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 08</span></div>
-      <!-- loop copy -->
-      <div class="logo-box"><span class="logo-box-txt">Client 01</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 02</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 03</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 04</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 05</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 06</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 07</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Client 08</span></div>
-    </div>
-  </div>
-  <!-- 2行目（逆方向） -->
-  <div class="client-row">
-    <div class="client-track rev">
-      <div class="logo-box"><span class="logo-box-txt">Partner 01</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 02</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 03</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 04</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 05</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 06</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 07</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 08</span></div>
-      <!-- loop copy -->
-      <div class="logo-box"><span class="logo-box-txt">Partner 01</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 02</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 03</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 04</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 05</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 06</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 07</span></div>
-      <div class="logo-box"><span class="logo-box-txt">Partner 08</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- =====================================================
-     LIVE DATA
-     ===================================================== -->
-<section class="stats-section" aria-label="運営実績データ">
-  <div class="stats-wrap">
-    <article class="stat-card rv">
-      <p class="stat-label">Projects Managed</p>
-      <p class="stat-value"><span class="count-up" data-target="420">0</span><span class="stat-unit">+</span></p>
-      <p class="stat-caption">累計イベント運営実績</p>
-    </article>
-    <article class="stat-card rv d1">
-      <p class="stat-label">Peak Visitors / Day</p>
-      <p class="stat-value"><span class="count-up" data-target="50000">0</span><span class="stat-unit">人</span></p>
-      <p class="stat-caption">1日あたり最大来場規模</p>
-    </article>
-    <article class="stat-card rv d2">
-      <p class="stat-label">Staff Network</p>
-      <p class="stat-value"><span class="count-up" data-target="260">0</span><span class="stat-unit">名</span></p>
-      <p class="stat-caption">全国の運営スタッフネットワーク</p>
-    </article>
-    <article class="stat-card rv d3">
-      <p class="stat-label">Languages Supported</p>
-      <p class="stat-value"><span class="count-up" data-target="4">0</span><span class="stat-unit">言語</span></p>
-      <p class="stat-caption">日本語 / 英語 / 中国語 / 韓国語</p>
-    </article>
-  </div>
-</section>
-
 <!-- =====================================================
      SERVICE — 事業内容
      ===================================================== -->
@@ -2771,13 +2455,13 @@
       <div class="svc-card rv">
         <div class="svc-ph"><span class="svc-ph-num">01</span></div>
         <div class="svc-img-wrap">
-          <img class="svc-img" src="" alt="スポーツ催事・イベント運営代行" loading="lazy">
+          <img class="svc-img" src="" alt="イベント企画・制作" loading="lazy">
         </div>
         <div class="svc-overlay"></div>
         <div class="svc-info">
-          <div class="svc-en">Event Planning</div>
-          <div class="svc-ja">イベント制作<br>企画・会場案内</div>
-          <div class="svc-desc">イベントの企画・制作から会場案内まで、企画段階から当日運営まで幅広く対応します。</div>
+          <div class="svc-en">Planning &amp; Production</div>
+          <div class="svc-ja">イベント企画・制作</div>
+          <div class="svc-desc">コンセプト設計から演出・制作まで、イベントの土台づくりをトータルでサポートします。</div>
         </div>
       </div>
 
@@ -2785,13 +2469,13 @@
       <div class="svc-card rv d1">
         <div class="svc-ph"><span class="svc-ph-num">02</span></div>
         <div class="svc-img-wrap">
-          <img class="svc-img" src="" alt="会場案内・グッズ販売" loading="lazy">
+          <img class="svc-img" src="" alt="イベント運営管理" loading="lazy">
         </div>
         <div class="svc-overlay"></div>
         <div class="svc-info">
-          <div class="svc-en">Goods &amp; Catering</div>
-          <div class="svc-ja">グッズ販売<br>ケータリング</div>
-          <div class="svc-desc">オフィシャルグッズ販売スタッフの手配からフード・ドリンクのケータリングまで対応します。</div>
+          <div class="svc-en">Operations Management</div>
+          <div class="svc-ja">イベント運営管理</div>
+          <div class="svc-desc">現場の進行管理・スタッフ統括・入退場など、当日の運営を一貫してマネジメントします。</div>
         </div>
       </div>
 
@@ -2799,13 +2483,13 @@
       <div class="svc-card rv d2">
         <div class="svc-ph"><span class="svc-ph-num">03</span></div>
         <div class="svc-img-wrap">
-          <img class="svc-img" src="" alt="ケータリング" loading="lazy">
+          <img class="svc-img" src="" alt="ディレクター・ADサポート" loading="lazy">
         </div>
         <div class="svc-overlay"></div>
         <div class="svc-info">
-          <div class="svc-en">Event Management</div>
-          <div class="svc-ja">イベント<br>運営管理</div>
-          <div class="svc-desc">現場スタッフの指揮・管理から入退場管理まで、イベント全体の運営を一括して担います。</div>
+          <div class="svc-en">Director &amp; AD Support</div>
+          <div class="svc-ja">ディレクター・ADサポート</div>
+          <div class="svc-desc">運営ディレクター・アシスタントディレクターを派遣し、関係者間の調整と現場統括を担います。</div>
         </div>
       </div>
 
@@ -2813,41 +2497,13 @@
       <div class="svc-card rv">
         <div class="svc-ph"><span class="svc-ph-num">04</span></div>
         <div class="svc-img-wrap">
-          <img class="svc-img" src="" alt="イベント全体運営" loading="lazy">
+          <img class="svc-img" src="" alt="語学対応スタッフ" loading="lazy">
         </div>
         <div class="svc-overlay"></div>
         <div class="svc-info">
-          <div class="svc-en">Director Support</div>
-          <div class="svc-ja">ディレクター<br>AD サポート</div>
-          <div class="svc-desc">運営ディレクターおよびアシスタントディレクターを派遣。現場を束ねるプロが対応します。</div>
-        </div>
-      </div>
-
-      <!-- ★ SERVICE PHOTO 5 -->
-      <div class="svc-card rv d1">
-        <div class="svc-ph"><span class="svc-ph-num">05</span></div>
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="" alt="運営ディレクター" loading="lazy">
-        </div>
-        <div class="svc-overlay"></div>
-        <div class="svc-info">
-          <div class="svc-en">Staff Dispatch</div>
-          <div class="svc-ja">スタッフ<br>手配</div>
-          <div class="svc-desc">イベント規模・目的に合わせた人数のスタッフを迅速に手配します。</div>
-        </div>
-      </div>
-
-      <!-- ★ SERVICE PHOTO 6 -->
-      <div class="svc-card rv d2">
-        <div class="svc-ph"><span class="svc-ph-num">06</span></div>
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="" alt="運営スタッフ" loading="lazy">
-        </div>
-        <div class="svc-overlay"></div>
-        <div class="svc-info">
-          <div class="svc-en">Multilingual Support</div>
-          <div class="svc-ja">語学対応<br>多言語スタッフ</div>
-          <div class="svc-desc">英語・中国語・韓国語に対応したスタッフを派遣。国際的なイベントも万全のサポートで対応します。</div>
+          <div class="svc-en">Multilingual Staff</div>
+          <div class="svc-ja">語学対応スタッフ</div>
+          <div class="svc-desc">英語・中国語・韓国語などに対応できるスタッフを配置し、海外ゲストや国際イベントにも対応します。</div>
           <div class="lang-tags">
             <span class="lang-tag">English</span>
             <span class="lang-tag">中文</span>
@@ -2856,183 +2512,133 @@
         </div>
       </div>
 
-      <!-- ★ SERVICE PHOTO 7 -->
-      <div class="svc-card rv">
-        <div class="svc-ph" style="background:linear-gradient(145deg,#90ccec,#acdef8);"><span class="svc-ph-num">07</span></div>
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="" alt="セキュリティ・警備サポート" loading="lazy">
-        </div>
-        <div class="svc-overlay"></div>
-        <div class="svc-info">
-          <div class="svc-en">Production</div>
-          <div class="svc-ja">プロダクション<br>事業</div>
-          <div class="svc-desc">プロモーション企画・マネジメントサポート・SNS運用など、プロダクション全般を担います。</div>
-        </div>
-      </div>
-
-      <!-- ★ SERVICE PHOTO 8 -->
+      <!-- ★ SERVICE PHOTO 5 -->
       <div class="svc-card rv d1">
-        <div class="svc-ph" style="background:linear-gradient(145deg,#98d0f0,#b2e4fa);"><span class="svc-ph-num">08</span></div>
+        <div class="svc-ph"><span class="svc-ph-num">05</span></div>
         <div class="svc-img-wrap">
-          <img class="svc-img" src="" alt="企画・プロデュース" loading="lazy">
+          <img class="svc-img" src="" alt="スタッフ手配" loading="lazy">
         </div>
         <div class="svc-overlay"></div>
         <div class="svc-info">
-          <div class="svc-en">Promotion</div>
-          <div class="svc-ja">プロモーション<br>企画・運営</div>
-          <div class="svc-desc">PR活動・海外企業イベントの企画運営まで、幅広いプロモーション業務をサポートします。</div>
+          <div class="svc-en">Staff Dispatch</div>
+          <div class="svc-ja">スタッフ手配</div>
+          <div class="svc-desc">規模・業務内容に応じた人数とスキルを把握し、イベントに最適なスタッフを手配します。</div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
 
 <!-- =====================================================
-     WORKS — 実績
+     WORKS 自動横スクロール — 実績
      ===================================================== -->
-<section class="works-section" id="works">
-  <div class="wrap">
-    <div class="sec-head row rv">
-      <div>
-        <p class="sec-label">Works</p>
-        <h2 class="sec-title">OUR RECORDS</h2>
-        <p class="sec-sub">主な実績</p>
-      </div>
-      <a href="#gallery" class="more-link rv d2">ギャラリーを見る <span class="arr">→</span></a>
+<section class="works-scroll-section" id="works">
+  <div class="works-scroll-head">
+    <div>
+      <p class="sec-label">Works</p>
+      <h2 class="sec-title">OUR WORKS</h2>
+      <p class="sec-sub">実績</p>
     </div>
+    <a href="about.html" class="more-link">すべての実績を見る <span class="arr">→</span></a>
+  </div>
 
-    <div class="works-list">
+  <div class="works-track-wrap">
+    <div class="works-track" id="works-track">
 
-      <!-- 実績 01 -->
-      <div class="work-card rv">
-        <div class="work-body">
-          <span class="work-cat">Expo / World Fair</span>
-          <div class="work-title-en">OSAKA &amp; KANSAI<br>EXPO 2025</div>
-          <div class="work-title-jp">大阪・関西万博</div>
-          <p class="work-desc">大阪・関西万博において運営ディレクターとして従事。大規模会場の全体進行を統括しました。</p>
-          <div class="work-more">
-            <span class="more-link">More <span class="arr">→</span></span>
-          </div>
+      <!-- 01 -->
+      <div class="wsc">
+        <div class="wsc-img-wrap">
+          <img class="wsc-img" src="../images/expo_1.jpg" alt="大阪・関西万博" loading="lazy">
         </div>
-        <div class="work-img-col">
-          <!-- ★ WORK PHOTO 1 — src を差し替え -->
-          <div class="work-img-ph">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span class="work-ph-txt">Photo</span>
-          </div>
-          <img class="work-img" src="" alt="大阪・関西万博" loading="lazy">
+        <div class="wsc-body">
+          <p class="wsc-cat">Expo / World Fair</p>
+          <p class="wsc-en">OSAKA &amp; KANSAI<br>EXPO 2025</p>
+          <p class="wsc-ja">大阪・関西万博</p>
         </div>
       </div>
 
-      <!-- 実績 02 -->
-      <div class="work-card rv d1">
-        <div class="work-body">
-          <span class="work-cat">International Event</span>
-          <div class="work-title-en">DEAFLYMPICS<br>COMPETITION</div>
-          <div class="work-title-jp">デフリンピック</div>
-          <p class="work-desc">デフリンピックにおける運営管理・スタッフ管理を担当。円滑な大会運営をサポートしました。</p>
-          <div class="work-more">
-            <span class="more-link">More <span class="arr">→</span></span>
-          </div>
+      <!-- 02 -->
+      <div class="wsc">
+        <div class="wsc-img-wrap">
+          <img class="wsc-img" src="../images/deaflympics.jpg" alt="デフリンピック" loading="lazy">
         </div>
-        <div class="work-img-col">
-          <!-- ★ WORK PHOTO 2 -->
-          <div class="work-img-ph">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span class="work-ph-txt">Photo</span>
-          </div>
-          <img class="work-img" src="" alt="デフリンピック" loading="lazy">
+        <div class="wsc-body">
+          <p class="wsc-cat">International Event</p>
+          <p class="wsc-en">DEAFLYMPICS<br>COMPETITION</p>
+          <p class="wsc-ja">デフリンピック</p>
         </div>
       </div>
 
-      <!-- 実績 03 -->
-      <div class="work-card rv d2">
-        <div class="work-body">
-          <span class="work-cat">International Event</span>
-          <div class="work-title-en">PARALYMPICS<br>COMPETITION</div>
-          <div class="work-title-jp">パラリンピック</div>
-          <p class="work-desc">パラリンピックにおける運営管理・スタッフ管理を担当。多言語対応で来場者を幅広くサポートしました。</p>
-          <div class="work-more">
-            <span class="more-link">More <span class="arr">→</span></span>
-          </div>
+      <!-- 03 -->
+      <div class="wsc">
+        <div class="wsc-img-wrap">
+          <img class="wsc-img" src="../images/paralympics.jpg" alt="パラリンピック" loading="lazy">
         </div>
-        <div class="work-img-col">
-          <!-- ★ WORK PHOTO 3 -->
-          <div class="work-img-ph">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span class="work-ph-txt">Photo</span>
-          </div>
-          <img class="work-img" src="" alt="パラリンピック" loading="lazy">
+        <div class="wsc-body">
+          <p class="wsc-cat">International Event</p>
+          <p class="wsc-en">PARALYMPICS<br>COMPETITION</p>
+          <p class="wsc-ja">パラリンピック</p>
         </div>
       </div>
 
-      <!-- 実績 04 -->
-      <div class="work-card rv">
-        <div class="work-body">
-          <span class="work-cat">Sports Event</span>
-          <div class="work-title-en">SPORTS<br>EVENT</div>
-          <div class="work-title-jp">スポーツイベント</div>
-          <p class="work-desc">各種スポーツイベントにおける運営補助を担当。円滑な大会・競技進行をサポートしました。</p>
-          <div class="work-more">
-            <span class="more-link">More <span class="arr">→</span></span>
-          </div>
+      <!-- 04 -->
+      <div class="wsc">
+        <div class="wsc-img-wrap">
+          <img class="wsc-img" src="../images/sports_1.jpg" alt="スポーツイベント" loading="lazy">
         </div>
-        <div class="work-img-col">
-          <!-- ★ WORK PHOTO 4 -->
-          <div class="work-img-ph">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span class="work-ph-txt">Photo</span>
-          </div>
-          <img class="work-img" src="" alt="スポーツイベント" loading="lazy">
+        <div class="wsc-body">
+          <p class="wsc-cat">Sports Event</p>
+          <p class="wsc-en">SPORTS<br>EVENT</p>
+          <p class="wsc-ja">スポーツイベント</p>
         </div>
       </div>
 
-      <!-- 実績 05 -->
-      <div class="work-card rv d1">
-        <div class="work-body">
-          <span class="work-cat">International Event</span>
-          <div class="work-title-en">OVERSEAS<br>CORPORATE EVENT</div>
-          <div class="work-title-jp">海外企業イベント</div>
-          <p class="work-desc">海外企業主催イベントにて語学対応・通訳として従事。英語・中国語・韓国語で円滑なコミュニケーションを支援しました。</p>
-          <div class="work-more">
-            <span class="more-link">More <span class="arr">→</span></span>
-          </div>
+      <!-- 05 -->
+      <div class="wsc">
+        <div class="wsc-img-wrap">
+          <img class="wsc-img" src="../images/overseas.jpg" alt="海外企業イベント" loading="lazy">
         </div>
-        <div class="work-img-col">
-          <!-- ★ WORK PHOTO 5 -->
-          <div class="work-img-ph">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span class="work-ph-txt">Photo</span>
-          </div>
-          <img class="work-img" src="" alt="海外企業イベント" loading="lazy">
+        <div class="wsc-body">
+          <p class="wsc-cat">International Event</p>
+          <p class="wsc-en">OVERSEAS<br>CORPORATE EVENT</p>
+          <p class="wsc-ja">海外企業イベント</p>
         </div>
       </div>
 
-      <!-- 実績 06 -->
-      <div class="work-card rv d2">
-        <div class="work-body">
-          <span class="work-cat">PR Event</span>
-          <div class="work-title-en">PRODUCT<br>PR EVENT</div>
-          <div class="work-title-jp">商品PRイベント</div>
-          <p class="work-desc">商品PRイベントにおけるPR活動を担当。ブランドの魅力を効果的に来場者へ届けました。</p>
-          <div class="work-more">
-            <span class="more-link">More <span class="arr">→</span></span>
+      <!-- 06 -->
+      <div class="wsc">
+        <div class="wsc-img-wrap">
+          <div class="wsc-ph">
+            <svg class="wsc-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
           </div>
         </div>
-        <div class="work-img-col">
-          <!-- ★ WORK PHOTO 6 -->
-          <div class="work-img-ph">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span class="work-ph-txt">Photo</span>
-          </div>
-          <img class="work-img" src="" alt="商品PRイベント" loading="lazy">
+        <div class="wsc-body">
+          <p class="wsc-cat">PR Event</p>
+          <p class="wsc-en">PRODUCT<br>PR EVENT</p>
+          <p class="wsc-ja">商品PRイベント</p>
         </div>
       </div>
+
+      <!-- 07 -->
+      <div class="wsc">
+        <div class="wsc-img-wrap">
+          <img class="wsc-img" src="../images/soccer.jpg" alt="国立競技場" loading="lazy">
+        </div>
+        <div class="wsc-body">
+          <p class="wsc-cat">Sports Festival</p>
+          <p class="wsc-en">NATIONAL<br>STADIUM</p>
+          <p class="wsc-ja">国立競技場</p>
+        </div>
+      </div>
+
+      <!-- === 無限ループ用複製（JS で生成）=== -->
 
     </div>
   </div>
 </section>
+
 
 <!-- =====================================================
      JOURNAL — ジャーナル
@@ -3045,254 +2651,23 @@
         <h2 class="sec-title">RC JOURNAL</h2>
         <p class="sec-sub">ジャーナル・コラム</p>
       </div>
-      <a href="#" class="more-link rv d2">すべて見る <span class="arr">→</span></a>
     </div>
 
-    <div class="journal-grid">
-
-      <article class="jcard rv">
-        <div class="jcard-img-wrap">
-          <div class="jcard-img-ph"><span class="jcard-ph-txt">Photo</span></div>
-          <img class="jcard-img-real" src="" alt="" loading="lazy">
-        </div>
-        <div class="jcard-body">
-          <div class="jcard-meta">
-            <span class="jcard-cat">Company</span>
-            <span class="jcard-date">2026.04.01</span>
-          </div>
-          <p class="jcard-title">株式会社リングクラス、公式サイトをオープンしました</p>
-          <p class="jcard-excerpt">イベント運営のプロフェッショナル集団、リングクラスの公式サイトが正式オープン。</p>
-        </div>
-      </article>
-
-      <article class="jcard rv d1">
-        <div class="jcard-img-wrap">
-          <div class="jcard-img-ph"><span class="jcard-ph-txt">Photo</span></div>
-          <img class="jcard-img-real" src="" alt="" loading="lazy">
-        </div>
-        <div class="jcard-body">
-          <div class="jcard-meta">
-            <span class="jcard-cat">Works</span>
-            <span class="jcard-date">2025.12.10</span>
-          </div>
-          <p class="jcard-title">大阪・関西万博 日本館 184日間の運営を振り返って</p>
-          <p class="jcard-excerpt">延べ数十万人の来場者を迎えた万博の現場から、私たちが学んだこととは。</p>
-        </div>
-      </article>
-
-      <article class="jcard rv d2">
-        <div class="jcard-img-wrap">
-          <div class="jcard-img-ph"><span class="jcard-ph-txt">Photo</span></div>
-          <img class="jcard-img-real" src="" alt="" loading="lazy">
-        </div>
-        <div class="jcard-body">
-          <div class="jcard-meta">
-            <span class="jcard-cat">Knowledge</span>
-            <span class="jcard-date">2025.11.05</span>
-          </div>
-          <p class="jcard-title">多言語対応スタッフを活用するためのポイント</p>
-          <p class="jcard-excerpt">英語・中国語・韓国語対応のスタッフ配置で、国際イベントを成功させるコツ。</p>
-        </div>
-      </article>
-
-      <article class="jcard rv d3">
-        <div class="jcard-img-wrap">
-          <div class="jcard-img-ph"><span class="jcard-ph-txt">Photo</span></div>
-          <img class="jcard-img-real" src="" alt="" loading="lazy">
-        </div>
-        <div class="jcard-body">
-          <div class="jcard-meta">
-            <span class="jcard-cat">Trend</span>
-            <span class="jcard-date">2025.10.20</span>
-          </div>
-          <p class="jcard-title">スポーツイベント運営の最新トレンド2025</p>
-          <p class="jcard-excerpt">テクノロジー活用からサステナブル運営まで、業界の最前線をレポートします。</p>
-        </div>
-      </article>
-
-      <article class="jcard rv">
-        <div class="jcard-img-wrap">
-          <div class="jcard-img-ph"><span class="jcard-ph-txt">Photo</span></div>
-          <img class="jcard-img-real" src="" alt="" loading="lazy">
-        </div>
-        <div class="jcard-body">
-          <div class="jcard-meta">
-            <span class="jcard-cat">Works</span>
-            <span class="jcard-date">2025.09.14</span>
-          </div>
-          <p class="jcard-title">パラリンピック競技大会での多言語サポートの実例</p>
-          <p class="jcard-excerpt">国際大会ならではの課題と、私たちが提供したソリューションをご紹介します。</p>
-        </div>
-      </article>
-
-      <article class="jcard rv d1">
-        <div class="jcard-img-wrap">
-          <div class="jcard-img-ph"><span class="jcard-ph-txt">Photo</span></div>
-          <img class="jcard-img-real" src="" alt="" loading="lazy">
-        </div>
-        <div class="jcard-body">
-          <div class="jcard-meta">
-            <span class="jcard-cat">Knowledge</span>
-            <span class="jcard-date">2025.08.22</span>
-          </div>
-          <p class="jcard-title">イベント当日の運営ディレクターの役割とは</p>
-          <p class="jcard-excerpt">現場を束ねる運営ディレクターが果たす役割を、具体的な事例をもとに解説します。</p>
-        </div>
-      </article>
-
-      <article class="jcard rv d2">
-        <div class="jcard-img-wrap">
-          <div class="jcard-img-ph"><span class="jcard-ph-txt">Photo</span></div>
-          <img class="jcard-img-real" src="" alt="" loading="lazy">
-        </div>
-        <div class="jcard-body">
-          <div class="jcard-meta">
-            <span class="jcard-cat">Company</span>
-            <span class="jcard-date">2025.07.01</span>
-          </div>
-          <p class="jcard-title">ケータリングサービスの新メニューを拡充しました</p>
-          <p class="jcard-excerpt">イベントシーンに合わせた多彩なフード・ドリンクメニューをご用意しています。</p>
-        </div>
-      </article>
-
-      <article class="jcard rv d3">
-        <div class="jcard-img-wrap">
-          <div class="jcard-img-ph"><span class="jcard-ph-txt">Photo</span></div>
-          <img class="jcard-img-real" src="" alt="" loading="lazy">
-        </div>
-        <div class="jcard-body">
-          <div class="jcard-meta">
-            <span class="jcard-cat">Trend</span>
-            <span class="jcard-date">2025.06.10</span>
-          </div>
-          <p class="jcard-title">地域密着型イベントが持つ可能性と未来</p>
-          <p class="jcard-excerpt">スポーツイベントや商品PRイベントなど、多様なイベント運営の意義と可能性を考えます。</p>
-        </div>
-      </article>
-
+    <div class="journal-content-wrapper rv">
+      <div class="journal-note-panel">
+        <p class="journal-note-lead">コラムやレポートの本文は <strong>note</strong> で公開しています。</p>
+        <a href="https://note.com/ringclass" class="btn-dark journal-note-btn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5m-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11m3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+          note を見る
+        </a>
+      </div>
+      <div class="journal-instagram-panel">
+        <iframe src="https://www.instagram.com/ringclass0113/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- =====================================================
-     ABOUT — 会社概要
-     ===================================================== -->
-<section class="about-section" id="about">
-  <div class="wrap">
-    <div class="about-grid">
-
-      <!-- 左：会社概要テーブル -->
-      <div class="rv">
-        <p class="sec-label">About</p>
-        <h2 class="sec-title">COMPANY<br>PROFILE</h2>
-        <p class="sec-sub">会社概要</p>
-        <table class="co-table">
-          <tbody>
-            <tr>
-              <th>Company Name</th>
-              <td>株式会社リングクラス</td>
-            </tr>
-            <tr>
-              <th>Founded</th>
-              <td>2026年1月</td>
-            </tr>
-            <tr>
-              <th>CEO</th>
-              <td>代表取締役 浅野 貴光</td>
-            </tr>
-            <tr>
-              <th>Business</th>
-              <td>
-                イベント制作・企画・会場案内<br>
-                グッズ販売・ケータリング<br>
-                イベント運営管理<br>
-                ディレクター・アシスタントディレクター<br>
-                スタッフ手配<br>
-                語学対応（英語・中国語・韓国語）<br>
-                <br>
-                ［プロダクション事業］<br>
-                プロモーション企画・運営<br>
-                マネジメントサポート<br>
-                SNS運用
-              </td>
-            </tr>
-            <tr>
-              <th>Address</th>
-              <td>
-                〒564-0051<br>
-                大阪府吹田市<br>
-                エクラート江坂ビル 3階
-              </td>
-            </tr>
-            <tr>
-              <th>TEL / FAX</th>
-              <td><a href="tel:0661707187">06-6170-7187</a></td>
-            </tr>
-            <tr>
-              <th>Bank</th>
-              <td>三井住友銀行 / GMOあおぞらネット銀行</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- 右：実績ハイライト -->
-      <div class="rv d2">
-        <p class="sec-label">Track Record</p>
-        <h2 class="sec-title">WHAT<br>WE'VE DONE</h2>
-        <p class="sec-sub">主な実績一覧</p>
-        <p style="margin-top:20px; font-size:13px; color:var(--gray4); line-height:2.1;">
-          国際的なスポーツ大会から日本最大規模の万博まで、<br>様々な現場で実績を積んでいます。
-        </p>
-        <div class="track-list">
-          <div class="track-item">
-            <div class="track-dot"></div>
-            <div class="track-body">
-              <span class="track-main">大阪・関西万博</span>
-              <span class="track-detail">運営ディレクター</span>
-            </div>
-          </div>
-          <div class="track-item">
-            <div class="track-dot"></div>
-            <div class="track-body">
-              <span class="track-main">デフリンピック</span>
-              <span class="track-detail">運営管理・スタッフ管理</span>
-            </div>
-          </div>
-          <div class="track-item">
-            <div class="track-dot"></div>
-            <div class="track-body">
-              <span class="track-main">パラリンピック</span>
-              <span class="track-detail">運営管理・スタッフ管理</span>
-            </div>
-          </div>
-          <div class="track-item">
-            <div class="track-dot"></div>
-            <div class="track-body">
-              <span class="track-main">スポーツイベント</span>
-              <span class="track-detail">運営補助</span>
-            </div>
-          </div>
-          <div class="track-item">
-            <div class="track-dot"></div>
-            <div class="track-body">
-              <span class="track-main">海外企業イベント</span>
-              <span class="track-detail">語学対応・通訳</span>
-            </div>
-          </div>
-          <div class="track-item">
-            <div class="track-dot"></div>
-            <div class="track-body">
-              <span class="track-main">商品PRイベント</span>
-              <span class="track-detail">PR活動</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- =====================================================
      MESSAGE — 代表メッセージ
@@ -3342,105 +2717,12 @@
             <div class="msg-sig-en">Takamitsu Asano, CEO</div>
           </div>
         </div>
-        <div class="msg-profile-chips">
-          <span class="msg-chip"><span class="chip-dot"></span>累計 420件超のイベントを運営</span>
-          <span class="msg-chip"><span class="chip-dot"></span>最大 5万人 / 日の現場経験</span>
-          <span class="msg-chip"><span class="chip-dot"></span>英語・中国語・韓国語チームを指揮</span>
-          <span class="msg-chip"><span class="chip-dot"></span>大阪・関西万博 日本館 184日間</span>
-        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-
-<!-- =====================================================
-     GALLERY — ギャラリー
-     ===================================================== -->
-<section class="gallery-section" id="gallery">
-  <div class="wrap">
-    <div class="sec-head row rv">
-      <div>
-        <p class="sec-label">Gallery</p>
-        <h2 class="sec-title white">OUR MOMENTS</h2>
-        <p class="sec-sub">ギャラリー</p>
-      </div>
-      <a href="https://www.instagram.com/ringclass0113" target="_blank" rel="noopener" class="more-link on-dark rv d2">
-        Instagram <span class="arr">→</span>
-      </a>
-    </div>
-
-    <div class="gal-grid">
-
-      <!-- ★ GALLERY PHOTO 1（大きい1枚目） -->
-      <div class="gal-item rv">
-        <div class="gal-ph"><span class="gal-ph-txt">Gallery 01</span></div>
-        <img class="gal-img" src="https://static.wixstatic.com/media/70f704_d0dbf4f035fc4d30bc23b9fdb5c581d6~mv2.png/v1/fill/w_980,h_735,al_c,q_90,enc_avif,quality_auto/70f704_d0dbf4f035fc4d30bc23b9fdb5c581d6~mv2.png" alt="イベント実績" loading="lazy">
-        <div class="gal-ov"></div>
-        <div class="gal-cap">イベント実績</div>
-      </div>
-
-      <!-- ★ GALLERY PHOTO 2〜8 — src を差し替え -->
-      <div class="gal-item rv d1">
-        <div class="gal-ph"><span class="gal-ph-txt">Gallery 02</span></div>
-        <img class="gal-img" src="" alt="大阪・関西万博" loading="lazy">
-        <div class="gal-ov"></div>
-        <div class="gal-cap">大阪・関西万博</div>
-      </div>
-
-      <div class="gal-item rv d2">
-        <div class="gal-ph"><span class="gal-ph-txt">Gallery 03</span></div>
-        <img class="gal-img" src="" alt="デフリンピック" loading="lazy">
-        <div class="gal-ov"></div>
-        <div class="gal-cap">デフリンピック</div>
-      </div>
-
-      <div class="gal-item rv">
-        <div class="gal-ph"><span class="gal-ph-txt">Gallery 04</span></div>
-        <img class="gal-img" src="" alt="パラリンピック" loading="lazy">
-        <div class="gal-ov"></div>
-        <div class="gal-cap">パラリンピック</div>
-      </div>
-
-      <div class="gal-item rv d1">
-        <div class="gal-ph"><span class="gal-ph-txt">Gallery 05</span></div>
-        <img class="gal-img" src="" alt="スポーツイベント" loading="lazy">
-        <div class="gal-ov"></div>
-        <div class="gal-cap">スポーツイベント</div>
-      </div>
-
-      <div class="gal-item rv d2">
-        <div class="gal-ph"><span class="gal-ph-txt">Gallery 06</span></div>
-        <img class="gal-img" src="" alt="海外企業イベント" loading="lazy">
-        <div class="gal-ov"></div>
-        <div class="gal-cap">海外企業イベント</div>
-      </div>
-
-      <div class="gal-item rv">
-        <div class="gal-ph"><span class="gal-ph-txt">Gallery 07</span></div>
-        <img class="gal-img" src="" alt="商品PRイベント" loading="lazy">
-        <div class="gal-ov"></div>
-        <div class="gal-cap">商品PRイベント</div>
-      </div>
-
-      <div class="gal-item rv d1">
-        <div class="gal-ph"><span class="gal-ph-txt">Gallery 08</span></div>
-        <img class="gal-img" src="" alt="キャンプイベント" loading="lazy">
-        <div class="gal-ov"></div>
-        <div class="gal-cap">キャンプイベント</div>
-      </div>
-
-    </div>
-
-    <div class="gal-more rv">
-      <a href="https://www.instagram.com/ringclass0113" target="_blank" rel="noopener" class="btn-yellow">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        @ringclass0113 でもっと見る
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- =====================================================
      CONTACT — お問い合わせ
@@ -3508,11 +2790,11 @@
             <label>お問い合わせの種類</label>
             <select id="f-type" name="type">
               <option value="">— 選択してください —</option>
-              <option>スポーツ催事・イベント運営代行</option>
-              <option>会場案内・グッズ販売スタッフ</option>
-              <option>ケータリング</option>
-              <option>運営ディレクター派遣</option>
-              <option>多言語対応スタッフ派遣</option>
+              <option>イベント企画・制作</option>
+              <option>イベント運営管理</option>
+              <option>ディレクター・ADサポート</option>
+              <option>語学対応スタッフ</option>
+              <option>スタッフ手配</option>
               <option>その他</option>
             </select>
           </div>
@@ -3584,11 +2866,11 @@
     <div>
       <p class="ft-col-title">Services</p>
       <ul class="ft-links">
-        <li><a href="#service">スポーツ・イベント運営代行</a></li>
-        <li><a href="#service">会場案内・グッズ販売</a></li>
-        <li><a href="#service">ケータリング</a></li>
-        <li><a href="#service">運営ディレクター</a></li>
-        <li><a href="#service">多言語対応スタッフ</a></li>
+        <li><a href="#service">イベント企画・制作</a></li>
+        <li><a href="#service">イベント運営管理</a></li>
+        <li><a href="#service">ディレクター・ADサポート</a></li>
+        <li><a href="#service">語学対応スタッフ</a></li>
+        <li><a href="#service">スタッフ手配</a></li>
       </ul>
     </div>
 
@@ -3808,7 +3090,7 @@
   });
 
   /* 空の <img src=""> を非表示 */
-  document.querySelectorAll('img.work-img, img.gal-img, img.svc-img, img.jcard-img-real, img.staff-photo-real').forEach(img => {
+  document.querySelectorAll('img.work-img, img.svc-img, img.staff-photo-real').forEach(img => {
     if (!img.src || img.src === window.location.href) img.style.display = 'none';
     img.addEventListener('error', () => img.style.display = 'none');
   });
@@ -3831,7 +3113,7 @@
 
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 
-    const hoverTargets = 'a, button, .svc-card, .gal-item, .work-card, .btn-yellow, .btn-dark, .btn-outline-light, label, select, input, textarea';
+    const hoverTargets = 'a, button, .svc-card, .btn-yellow, .btn-dark, .btn-outline-light, label, select, input, textarea';
     document.querySelectorAll(hoverTargets).forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -3983,7 +3265,7 @@
 
     const MAX_TILT = 8;
 
-    document.querySelectorAll('.svc-card, .gal-item').forEach(card => {
+    document.querySelectorAll('.svc-card').forEach(card => {
       card.addEventListener('mousemove', e => {
         const r  = card.getBoundingClientRect();
         const nx = (e.clientX - r.left)  / r.width  - 0.5;   // -0.5 ~ 0.5
@@ -4032,6 +3314,81 @@
       // <br>を含む要素は除外（テキストが複数行の場合はスキップ）
       if (!el.querySelector('br')) glitchObserver.observe(el);
     });
+  })();
+
+  /* =========================================
+     WORKS マーキー 無限ループ複製
+     ========================================= */
+  (function() {
+    const track = document.getElementById('works-track');
+    if (!track) return;
+    // カードを複製して末尾に追加（translateX(-50%)で無限ループ）
+    const cards = Array.from(track.children);
+    cards.forEach(c => track.appendChild(c.cloneNode(true)));
+  })();
+
+  /* =========================================
+     幾何学図形 スクロール収束アニメーション
+     ========================================= */
+  (function() {
+    const geoEls = Array.from(document.querySelectorAll('#geo-bg .geo'));
+    if (!geoEls.length) return;
+
+    // 各geo要素の初期translate位置（%）とその他のtransform情報を保持
+    const geoData = geoEls.map(el => {
+      const t   = el.getAttribute('transform') || '';
+      const m   = t.match(/translate\(\s*([\d.]+)%\s*,\s*([\d.]+)%\s*\)/);
+      // translate(...)以外の部分（rotate等）を保持
+      const rest = t.replace(/translate\([^)]+\)/, '').trim();
+      return {
+        el,
+        ox: m ? parseFloat(m[1]) : 50,
+        oy: m ? parseFloat(m[2]) : 50,
+        rest,
+      };
+    });
+
+    const sections = Array.from(document.querySelectorAll('section:not(.hero)'));
+    let rafId = null;
+    let lastGather = -1;
+
+    const update = () => {
+      const vh = window.innerHeight;
+      let maxGather = 0;
+
+      sections.forEach(sec => {
+        const r      = sec.getBoundingClientRect();
+        const secMid = r.top + r.height / 2;
+        const dist   = Math.abs(secMid - vh / 2);
+        const g      = Math.max(0, 1 - dist / (vh * 0.65));
+        if (g > maxGather) maxGather = g;
+      });
+
+      // smoothstepイージング
+      const t = maxGather;
+      const gather = t * t * (3 - 2 * t);
+
+      // 変化がなければスキップ
+      if (Math.abs(gather - lastGather) < 0.002) { rafId = null; return; }
+      lastGather = gather;
+
+      geoData.forEach(({ el, ox, oy, rest }) => {
+        // 中央（50%,50%）に向かって収束
+        const nx = ox + (50 - ox) * gather;
+        const ny = oy + (50 - oy) * gather;
+        el.setAttribute('transform', `translate(${nx}%,${ny}%) ${rest}`);
+      });
+
+      rafId = null;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!rafId) rafId = requestAnimationFrame(update);
+    }, { passive: true });
+    window.addEventListener('resize', () => {
+      if (!rafId) rafId = requestAnimationFrame(update);
+    }, { passive: true });
+    update();
   })();
 
   /* お問い合わせフォーム（仮送信処理） */
