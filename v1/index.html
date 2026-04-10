@@ -70,7 +70,7 @@
   <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
   <link rel="dns-prefetch" href="//static.wixstatic.com">
   <link rel="preload" as="image" href="../haikei.jpg" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Yuji+Syuku&display=swap" rel="stylesheet">
 
   <!--
   ★★★★★★★★★★★★★★★★★★★★★★★
@@ -791,6 +791,36 @@
     .hero-title .ln:nth-child(3) span { animation-delay: .72s; }
     .hero-accent { color: var(--yellow); }
 
+    .hero-body {
+      display: flex;
+      align-items: center;
+      gap: clamp(24px, 5vw, 64px);
+      margin-top: 36px;
+      opacity: 0;
+      animation: fadeUp .9s var(--ease) .9s forwards;
+    }
+    .hero-catch-wrap { flex: 0 0 auto; }
+    .hero-catch {
+      font-family: 'Yuji Syuku', serif;
+      font-size: clamp(34px, 5.5vw, 68px);
+      color: var(--white);
+      line-height: 1.5;
+      letter-spacing: .04em;
+    }
+    .hero-vdivider {
+      width: 1px;
+      height: clamp(60px, 8vw, 90px);
+      background: rgba(255,255,255,.2);
+      flex-shrink: 0;
+    }
+    .hero-copy-wrap { flex: 1; }
+    .hero-copy {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(12px, 1.3vw, 14px);
+      color: rgba(255,255,255,.68);
+      line-height: 2.4;
+      letter-spacing: .02em;
+    }
     .hero-sub {
       margin-top: 26px;
       font-size: clamp(13px, 1.5vw, 15px);
@@ -1023,6 +1053,7 @@
       aspect-ratio: 1 / 1;
       overflow: hidden;
       background: var(--gray2);
+      border-radius: 20px;
     }
     .svc-ph {
       position: absolute;
@@ -1398,35 +1429,39 @@
     }
     .works-scroll-head .more-link:hover { color: var(--black); border-color: var(--black); }
 
-    /* トラック */
-    .works-track-wrap {
-      overflow: hidden;
+    /* 3D リングカルーセル */
+    .works-stage {
+      height: 380px;
+      perspective: 800px;
+      perspective-origin: 50% 50%;
+      position: relative;
     }
-    .works-track {
-      display: flex;
-      gap: 20px;
-      width: max-content;
-      animation: worksMarquee 48s linear infinite;
+    .works-ring {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      animation: ringRotate 20s linear infinite;
     }
-    .works-track-wrap:hover .works-track { animation-play-state: paused; }
-    @keyframes worksMarquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+    .works-ring:hover { animation-play-state: paused; }
+    @keyframes ringRotate {
+      to { transform: rotateY(-360deg); }
     }
 
     /* カード */
     .wsc {
-      flex-shrink: 0;
-      width: 300px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 280px;
+      margin-left: -140px;
       background: #ffffff;
-      border: 1px solid rgba(0,80,130,.1);
+      border: 1px solid rgba(0,80,130,.08);
+      border-radius: 20px;
       overflow: hidden;
-      transition: border-color .3s, transform .3s var(--ease);
+      box-shadow: 0 8px 32px rgba(0,0,0,.14);
+      transform: rotateY(calc(var(--i) * (360deg / 7))) translateZ(390px);
       cursor: default;
-    }
-    .wsc:hover {
-      border-color: rgba(0,158,197,.5);
-      transform: translateY(-4px);
     }
     .wsc-img {
       width: 100%;
@@ -1574,6 +1609,10 @@
       .sec-head.row { flex-direction: column; align-items: flex-start; }
       .hero-cats { display: none; }
       .stats-wrap { grid-template-columns: repeat(2, 1fr); }
+      /* ヒーロー：縦積み */
+      .hero-body { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .hero-vdivider { width: clamp(40px, 20vw, 80px); height: 1px; }
+      .hero-catch { font-size: clamp(28px, 7vw, 44px); }
     }
     @media (max-width: 860px) {
       .staff-grid   { grid-template-columns: repeat(3, 1fr); }
@@ -2301,12 +2340,21 @@
 
   <div class="hero-content">
     <p class="hero-eyebrow">Event Operation &nbsp;·&nbsp; Sports &nbsp;·&nbsp; Entertainment &nbsp;·&nbsp; Multilingual Staff</p>
-    <p class="hero-sub" style="margin-top:0; margin-bottom:28px;">
-      エンタテイメントで笑顔と感動を、<br>
-      希望を届ける会社を運営しています！<br>
-      いままでにないエンタメを考案し、<br>
-      多くの皆様に届けます！
-    </p>
+    <div class="hero-body">
+      <div class="hero-catch-wrap">
+        <p class="hero-catch">縁をつなぎ、<br>感動を運ぶ。</p>
+      </div>
+      <div class="hero-vdivider"></div>
+      <div class="hero-copy-wrap">
+        <p class="hero-copy">
+          人が集まれば、縁が生まれる。<br>
+          小さなイベントも、大きな舞台も、<br>
+          最後まで伴走してしっかりと運営する。<br>
+          派手さより、つながりと笑顔を。<br>
+          関西発——現場目線のイベント会社。
+        </p>
+      </div>
+    </div>
   </div>
 
 
@@ -2440,11 +2488,11 @@
     <a href="about.html" class="more-link">すべての実績を見る <span class="arr">→</span></a>
   </div>
 
-  <div class="works-track-wrap">
-    <div class="works-track" id="works-track">
+  <div class="works-stage">
+    <div class="works-ring" id="works-ring">
 
       <!-- 01 -->
-      <div class="wsc">
+      <div class="wsc" style="--i:0">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="../images/expo_1.jpg" alt="大阪・関西万博" loading="lazy">
         </div>
@@ -2456,7 +2504,7 @@
       </div>
 
       <!-- 02 -->
-      <div class="wsc">
+      <div class="wsc" style="--i:1">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="../images/deaflympics.jpg" alt="デフリンピック" loading="lazy">
         </div>
@@ -2468,7 +2516,7 @@
       </div>
 
       <!-- 03 -->
-      <div class="wsc">
+      <div class="wsc" style="--i:2">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="../images/paralympics.jpg" alt="パラリンピック" loading="lazy">
         </div>
@@ -2480,7 +2528,7 @@
       </div>
 
       <!-- 04 -->
-      <div class="wsc">
+      <div class="wsc" style="--i:3">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="../images/sports_1.jpg" alt="スポーツイベント" loading="lazy">
         </div>
@@ -2492,7 +2540,7 @@
       </div>
 
       <!-- 05 -->
-      <div class="wsc">
+      <div class="wsc" style="--i:4">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="../images/overseas.jpg" alt="海外企業イベント" loading="lazy">
         </div>
@@ -2504,7 +2552,7 @@
       </div>
 
       <!-- 06 -->
-      <div class="wsc">
+      <div class="wsc" style="--i:5">
         <div class="wsc-img-wrap">
           <div class="wsc-ph">
             <svg class="wsc-ph-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
@@ -2518,7 +2566,7 @@
       </div>
 
       <!-- 07 -->
-      <div class="wsc">
+      <div class="wsc" style="--i:6">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="../images/soccer.jpg" alt="国立競技場" loading="lazy">
         </div>
@@ -2528,8 +2576,6 @@
           <p class="wsc-ja">国立競技場</p>
         </div>
       </div>
-
-      <!-- === 無限ループ用複製（JS で生成）=== -->
 
     </div>
   </div>
@@ -2600,9 +2646,9 @@
         <h2 class="sec-title">FROM THE<br>PRESIDENT</h2>
         <p class="sec-sub">代表メッセージ</p>
         <blockquote class="msg-quote">
-          エンタテイメントで笑顔と感動を、<br>
+          エンターテイメントで笑顔と感動を、<br>
           希望を届ける会社を運営しています！<br>
-          いままでにないとんたメを考案し、<br>
+          いままでにないエンタメを考案し、<br>
           多くの皆様に届けます！
         </blockquote>
         <div class="msg-sig">
@@ -3212,15 +3258,9 @@
   })();
 
   /* =========================================
-     WORKS マーキー 無限ループ複製
+     WORKS 3D リングカルーセル
+     （--i は HTML で設定済み。CSS変数で位置計算）
      ========================================= */
-  (function() {
-    const track = document.getElementById('works-track');
-    if (!track) return;
-    // カードを複製して末尾に追加（translateX(-50%)で無限ループ）
-    const cards = Array.from(track.children);
-    cards.forEach(c => track.appendChild(c.cloneNode(true)));
-  })();
 
   /* =========================================
      image-parts スクロール収束アニメーション
