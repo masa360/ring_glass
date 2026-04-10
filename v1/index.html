@@ -108,7 +108,7 @@
       --gray4:      rgba(0,70,130,0.68);    /* secondary text */
       --text:       #0a3d5a;   /* main body text — dark water blue */
       --yellow:     #009ec5;   /* ★ water blue / cyan accent */
-      --bg-body:    #f0f9ff;   /* ★ light sky blue base */
+      --bg-body:    #f5f5f7;   /* ★ near-white gray base */
       --bg-surface: #ffffff;   /* ★ white surface */
 
       /* ★ HERO BG — 背景写真のURLをここに入れる */
@@ -195,16 +195,13 @@
       position: relative;
       z-index: 2;
     }
-    .geo {
+    .geo-part {
       position: absolute;
-      opacity: 0;
-      animation: geoFloat linear infinite;
-    }
-    @keyframes geoFloat {
-      0%   { opacity: 0;    transform: translateY(0)    rotate(0deg)   scale(1); }
-      8%   { opacity: 0.12; }
-      92%  { opacity: 0.12; }
-      100% { opacity: 0;    transform: translateY(-60px) rotate(var(--rot,30deg)) scale(var(--sc,1.05)); }
+      top: 0; left: 0;
+      opacity: 0.16;
+      pointer-events: none;
+      will-change: transform;
+      mix-blend-mode: multiply;
     }
 
     /* =====================================================
@@ -991,11 +988,9 @@
        ===================================================== */
     .service-tagline-section {
       padding: clamp(40px, 7vw, 80px) 0;
-      background: linear-gradient(rgba(4,20,48,.82), rgba(4,20,48,.82)), url('../back1.png') center/cover no-repeat fixed;
       border-top: none;
       border-bottom: none;
     }
-    .service-tagline-text { color: rgba(255,255,255,.92) !important; }
     .service-tagline-content {
       display: flex;
       align-items: center;
@@ -1016,11 +1011,7 @@
        ===================================================== */
     .service-section {
       padding: var(--pad-v) 0;
-      background: linear-gradient(rgba(4,20,48,.78), rgba(4,20,48,.78)), url('../back2.png') center/cover no-repeat fixed;
     }
-    .service-section .sec-title,
-    .service-section .sec-label,
-    .service-section .sec-sub { color: rgba(255,255,255,.9); }
     .service-section .more-link { color: var(--yellow); }
     .svc-grid {
       display: grid;
@@ -1128,17 +1119,7 @@
        ===================================================== */
     .message-section {
       padding: var(--pad-v) 0;
-      background: linear-gradient(rgba(4,20,48,.80), rgba(4,20,48,.80)), url('../back2.png') center/cover no-repeat fixed;
     }
-    .message-section .sec-title,
-    .message-section .sec-label,
-    .message-section .sec-sub { color: rgba(255,255,255,.9); }
-    .message-section .msg-quote { color: rgba(255,255,255,.85); }
-    .message-section .msg-sig-name,
-    .message-section .msg-sig-role,
-    .message-section .msg-sig-en { color: rgba(255,255,255,.7); }
-    .message-section .msg-chip { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.65); }
-    .message-section .msg-profile-chips { border-top-color: rgba(255,255,255,.12); }
     .msg-grid {
       display: grid;
       grid-template-columns: 5fr 7fr;
@@ -1290,26 +1271,7 @@
        ===================================================== */
     .contact-section {
       padding: var(--pad-v) 0;
-      background: linear-gradient(rgba(4,20,48,.83), rgba(4,20,48,.83)), url('../back1.png') center/cover no-repeat fixed;
     }
-    .contact-section .sec-title,
-    .contact-section .sec-label,
-    .contact-section .sec-sub { color: rgba(255,255,255,.9); }
-    .contact-section label { color: rgba(255,255,255,.75); }
-    .contact-section input,
-    .contact-section select,
-    .contact-section textarea {
-      background: rgba(255,255,255,.07);
-      border-color: rgba(255,255,255,.2);
-      color: rgba(255,255,255,.9);
-    }
-    .contact-section input::placeholder,
-    .contact-section textarea::placeholder { color: rgba(255,255,255,.3); }
-    .contact-section .ci { background: rgba(255,255,255,.06); }
-    .contact-section .ci:hover { background: rgba(0,158,197,.15); border-left-color: var(--yellow); }
-    .contact-section .ci-lbl,
-    .contact-section .ci-val { color: rgba(255,255,255,.7); }
-    .contact-section .form-note { color: rgba(255,255,255,.45); }
     .contact-grid {
       display: grid;
       grid-template-columns: 5fr 6fr;
@@ -1406,7 +1368,6 @@
        ===================================================== */
     .works-scroll-section {
       padding: clamp(48px, 7vw, 88px) 0;
-      background: linear-gradient(rgba(4,20,48,.88), rgba(4,20,48,.88)), url('../back2.png') center/cover no-repeat fixed;
       overflow: hidden;
     }
     .works-scroll-head {
@@ -1419,8 +1380,6 @@
       gap: 16px;
     }
     .works-scroll-head .sec-label { color: var(--yellow); }
-    .works-scroll-head .sec-title { color: var(--white); }
-    .works-scroll-head .sec-sub   { color: rgba(255,255,255,.55); }
     .works-scroll-head .more-link {
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
@@ -1437,7 +1396,7 @@
       border-bottom: 1px solid rgba(0,158,197,.35);
       transition: color .2s, border-color .2s;
     }
-    .works-scroll-head .more-link:hover { color: #fff; border-color: #fff; }
+    .works-scroll-head .more-link:hover { color: var(--black); border-color: var(--black); }
 
     /* トラック */
     .works-track-wrap {
@@ -1459,8 +1418,8 @@
     .wsc {
       flex-shrink: 0;
       width: 300px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
+      background: #ffffff;
+      border: 1px solid rgba(0,80,130,.1);
       overflow: hidden;
       transition: border-color .3s, transform .3s var(--ease);
       cursor: default;
@@ -1511,7 +1470,7 @@
       font-weight: 500;
       letter-spacing: .05em;
       text-transform: uppercase;
-      color: var(--white);
+      color: var(--black);
       line-height: 1.2;
       margin-bottom: 4px;
     }
@@ -1519,7 +1478,7 @@
       font-family: 'Noto Sans JP', sans-serif;
       font-size: 11px;
       font-weight: 300;
-      color: rgba(255,255,255,.45);
+      color: var(--gray4);
       letter-spacing: .05em;
     }
 
@@ -1962,11 +1921,7 @@
        ===================================================== */
     .journal-section {
       padding: var(--pad-v) 0;
-      background: linear-gradient(rgba(4,20,48,.85), rgba(4,20,48,.85)), url('../back1.png') center/cover no-repeat fixed;
     }
-    .journal-section .sec-title,
-    .journal-section .sec-label,
-    .journal-section .sec-sub { color: rgba(255,255,255,.9); }
     .journal-content-wrapper {
       display: flex;
       gap: 40px;
@@ -2146,83 +2101,17 @@
 
 <!-- 幾何学模様 背景レイヤー -->
 <div id="geo-bg" aria-hidden="true">
-  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;inset:0;">
-    <!-- 六角形 -->
-    <polygon class="geo" points="0,-22 19,-11 19,11 0,22 -19,11 -19,-11" fill="none" stroke="#0090b8" stroke-width="1.6"
-      style="--rot:40deg;--sc:1.06; animation-duration:18s; animation-delay:0s;"
-      transform="translate(8%,18%)"/>
-    <polygon class="geo" points="0,-14 12,-7 12,7 0,14 -12,7 -12,-7" fill="none" stroke="#0090b8" stroke-width="1.4"
-      style="--rot:-25deg;--sc:1.04; animation-duration:24s; animation-delay:-6s;"
-      transform="translate(92%,72%)"/>
-    <polygon class="geo" points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="none" stroke="#0090b8" stroke-width="1.8"
-      style="--rot:50deg;--sc:1.08; animation-duration:22s; animation-delay:-10s;"
-      transform="translate(55%,85%)"/>
-    <polygon class="geo" points="0,-18 16,-9 16,9 0,18 -16,9 -16,-9" fill="none" stroke="#29d4f0" stroke-width="1.4"
-      style="--rot:-35deg;--sc:1.05; animation-duration:20s; animation-delay:-3s;"
-      transform="translate(78%,12%)"/>
-    <polygon class="geo" points="0,-10 9,-5 9,5 0,10 -9,5 -9,-5" fill="#00c8ee" stroke="none" opacity="0.08"
-      style="--rot:60deg;--sc:1.1; animation-duration:26s; animation-delay:-15s;"
-      transform="translate(33%,60%)"/>
-
-    <!-- 三角形 -->
-    <polygon class="geo" points="0,-24 21,12 -21,12" fill="none" stroke="#0090b8" stroke-width="1.6"
-      style="--rot:30deg;--sc:1.05; animation-duration:19s; animation-delay:-2s;"
-      transform="translate(22%,42%)"/>
-    <polygon class="geo" points="0,-16 14,8 -14,8" fill="none" stroke="#29d4f0" stroke-width="1.4"
-      style="--rot:-45deg;--sc:1.04; animation-duration:23s; animation-delay:-8s;"
-      transform="translate(68%,28%)"/>
-    <polygon class="geo" points="0,-20 17,10 -17,10" fill="none" stroke="#0090b8" stroke-width="1.5"
-      style="--rot:55deg;--sc:1.06; animation-duration:21s; animation-delay:-14s;"
-      transform="translate(88%,55%)"/>
-    <polygon class="geo" points="0,-12 10,6 -10,6" fill="#00c8ee" stroke="none" opacity="0.09"
-      style="--rot:-20deg;--sc:1.04; animation-duration:17s; animation-delay:-5s;"
-      transform="translate(12%,78%)"/>
-    <polygon class="geo" points="0,-28 24,14 -24,14" fill="none" stroke="#0090b8" stroke-width="1.8"
-      style="--rot:70deg;--sc:1.09; animation-duration:25s; animation-delay:-19s;"
-      transform="translate(44%,10%)"/>
-
-    <!-- 四角形 -->
-    <rect class="geo" x="-18" y="-18" width="36" height="36" fill="none" stroke="#0090b8" stroke-width="1.6"
-      style="--rot:25deg;--sc:1.05; animation-duration:20s; animation-delay:-7s;"
-      transform="translate(5%,50%)"/>
-    <rect class="geo" x="-12" y="-12" width="24" height="24" fill="none" stroke="#29d4f0" stroke-width="1.4"
-      style="--rot:-40deg;--sc:1.04; animation-duration:22s; animation-delay:-12s;"
-      transform="translate(82%,38%)"/>
-    <rect class="geo" x="-22" y="-22" width="44" height="44" fill="none" stroke="#0090b8" stroke-width="1.8"
-      style="--rot:60deg;--sc:1.07; animation-duration:28s; animation-delay:-1s;"
-      transform="translate(48%,68%)"/>
-    <rect class="geo" x="-9" y="-9" width="18" height="18" fill="#00c8ee" stroke="none" opacity="0.08"
-      style="--rot:45deg;--sc:1.06; animation-duration:16s; animation-delay:-9s;"
-      transform="translate(65%,90%)"/>
-    <rect class="geo" x="-15" y="-15" width="30" height="30" fill="none" stroke="#0090b8" stroke-width="1.5"
-      style="--rot:-30deg;--sc:1.05; animation-duration:21s; animation-delay:-17s;"
-      transform="translate(30%,25%)"/>
-
-    <!-- 丸 -->
-    <circle class="geo" r="20" fill="none" stroke="#0090b8" stroke-width="1.6"
-      style="--rot:0deg;--sc:1.06; animation-duration:19s; animation-delay:-4s;"
-      transform="translate(95%,20%)"/>
-    <circle class="geo" r="13" fill="none" stroke="#29d4f0" stroke-width="1.4"
-      style="--rot:0deg;--sc:1.04; animation-duration:24s; animation-delay:-11s;"
-      transform="translate(38%,80%)"/>
-    <circle class="geo" r="26" fill="none" stroke="#0090b8" stroke-width="1.8"
-      style="--rot:0deg;--sc:1.08; animation-duration:30s; animation-delay:-20s;"
-      transform="translate(15%,95%)"/>
-    <circle class="geo" r="9" fill="#00c8ee" stroke="none" opacity="0.10"
-      style="--rot:0deg;--sc:1.1; animation-duration:15s; animation-delay:-13s;"
-      transform="translate(72%,62%)"/>
-    <circle class="geo" r="16" fill="none" stroke="#0090b8" stroke-width="1.5"
-      style="--rot:0deg;--sc:1.05; animation-duration:22s; animation-delay:-16s;"
-      transform="translate(50%,40%)"/>
-
-    <!-- ひし形（四角を45度回転）-->
-    <rect class="geo" x="-14" y="-14" width="28" height="28" fill="none" stroke="#29d4f0" stroke-width="1.5"
-      style="--rot:45deg;--sc:1.06; animation-duration:23s; animation-delay:-18s;"
-      transform="translate(25%,8%) rotate(45)"/>
-    <rect class="geo" x="-10" y="-10" width="20" height="20" fill="none" stroke="#0090b8" stroke-width="1.4"
-      style="--rot:45deg;--sc:1.04; animation-duration:18s; animation-delay:-22s;"
-      transform="translate(60%,5%) rotate(45)"/>
-  </svg>
+  <img class="geo-part" src="../image-parts/unnamed%20(1).png"  data-ox="8"  data-oy="15" style="width:100px">
+  <img class="geo-part" src="../image-parts/unnamed%20(2).png"  data-ox="92" data-oy="72" style="width:72px">
+  <img class="geo-part" src="../image-parts/unnamed%20(3).png"  data-ox="55" data-oy="88" style="width:120px">
+  <img class="geo-part" src="../image-parts/unnamed%20(4).png"  data-ox="80" data-oy="10" style="width:80px">
+  <img class="geo-part" src="../image-parts/unnamed%20(5).png"  data-ox="28" data-oy="58" style="width:90px">
+  <img class="geo-part" src="../image-parts/unnamed%20(6).png"  data-ox="16" data-oy="38" style="width:65px">
+  <img class="geo-part" src="../image-parts/unnamed%20(7).png"  data-ox="72" data-oy="25" style="width:110px">
+  <img class="geo-part" src="../image-parts/unnamed%20(8).png"  data-ox="88" data-oy="54" style="width:75px">
+  <img class="geo-part" src="../image-parts/unnamed%20(9).png"  data-ox="10" data-oy="80" style="width:85px">
+  <img class="geo-part" src="../image-parts/unnamed%20(10).png" data-ox="45" data-oy="6"  style="width:95px">
+  <img class="geo-part" src="../image-parts/unnamed%20(11).png" data-ox="62" data-oy="94" style="width:68px">
 </div>
 
 <!-- カスタムカーソル -->
@@ -3328,25 +3217,29 @@
   })();
 
   /* =========================================
-     幾何学図形 スクロール収束アニメーション
+     image-parts スクロール収束アニメーション
      ========================================= */
   (function() {
-    const geoEls = Array.from(document.querySelectorAll('#geo-bg .geo'));
-    if (!geoEls.length) return;
+    const parts = Array.from(document.querySelectorAll('#geo-bg .geo-part'));
+    if (!parts.length) return;
 
-    // 各geo要素の初期translate位置（%）とその他のtransform情報を保持
-    const geoData = geoEls.map(el => {
-      const t   = el.getAttribute('transform') || '';
-      const m   = t.match(/translate\(\s*([\d.]+)%\s*,\s*([\d.]+)%\s*\)/);
-      // translate(...)以外の部分（rotate等）を保持
-      const rest = t.replace(/translate\([^)]+\)/, '').trim();
-      return {
-        el,
-        ox: m ? parseFloat(m[1]) : 50,
-        oy: m ? parseFloat(m[2]) : 50,
-        rest,
-      };
-    });
+    // data属性から初期位置（ビューポート %）を取得
+    const geoData = parts.map(el => ({
+      el,
+      ox: parseFloat(el.dataset.ox) || 50,
+      oy: parseFloat(el.dataset.oy) || 50,
+    }));
+
+    // transform で GPU アクセラレーションを使って位置を設定
+    const setPos = (el, nx, ny) => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const w  = el.offsetWidth  || parseInt(el.style.width)  || 80;
+      const h  = el.offsetHeight || w;
+      const tx = nx / 100 * vw - w / 2;
+      const ty = ny / 100 * vh - h / 2;
+      el.style.transform = `translate(${tx}px,${ty}px)`;
+    };
 
     const sections = Array.from(document.querySelectorAll('section:not(.hero)'));
     let rafId = null;
@@ -3364,24 +3257,25 @@
         if (g > maxGather) maxGather = g;
       });
 
-      // smoothstepイージング
+      // smoothstep イージング
       const t = maxGather;
       const gather = t * t * (3 - 2 * t);
 
-      // 変化がなければスキップ
       if (Math.abs(gather - lastGather) < 0.002) { rafId = null; return; }
       lastGather = gather;
 
-      geoData.forEach(({ el, ox, oy, rest }) => {
-        // 中央（50%,50%）に向かって収束
+      geoData.forEach(({ el, ox, oy }) => {
         const nx = ox + (50 - ox) * gather;
         const ny = oy + (50 - oy) * gather;
-        el.setAttribute('transform', `translate(${nx}%,${ny}%) ${rest}`);
+        setPos(el, nx, ny);
       });
 
       rafId = null;
     };
 
+    // 初期位置を設定（画像ロード後に再計算）
+    geoData.forEach(({ el, ox, oy }) => setPos(el, ox, oy));
+    window.addEventListener('load', update);
     window.addEventListener('scroll', () => {
       if (!rafId) rafId = requestAnimationFrame(update);
     }, { passive: true });
