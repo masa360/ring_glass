@@ -368,24 +368,19 @@
     }
     #float-cta.show { opacity: 1; transform: none; pointer-events: auto; }
     #float-cta a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--black);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: 14px 24px;
-      box-shadow: 0 8px 28px rgba(0,0,0,.18);
-      transition: opacity .2s;
+      display: block;
+      transition: opacity .2s, transform .2s var(--ease);
     }
-    #float-cta a:hover { opacity: .85; }
-    #float-cta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); }
+    #float-cta a:hover { opacity: .85; transform: scale(1.04); }
+    #float-cta img {
+      width: 100px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,.22));
+    }
     @media (max-width: 600px) {
       #float-cta { bottom: 16px; right: 16px; }
+      #float-cta img { width: 80px; }
     }
 
     /* =====================================================
@@ -2190,8 +2185,7 @@
      ===================================================== -->
 <div id="float-cta">
   <a href="#contact">
-    <span class="dot"></span>
-    無料相談
+    <img src="../image-character/scroll.jpg" alt="無料相談">
   </a>
 </div>
 
