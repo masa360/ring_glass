@@ -36,8 +36,8 @@
     "@type": "LocalBusiness",
     "name": "株式会社リングクラス",
     "url": "https://ringclass.net/",
-    "logo": "https://static.wixstatic.com/media/70f704_f99c3a7df2e345f59aeadcebf2ccccf7~mv2.png",
-    "image": "https://static.wixstatic.com/media/ea71bb_9727659728784e1f9607c65aea136a7f~mv2.jpg",
+    "logo": "https://ringclass.net/images/logo.png",
+    "image": "https://ringclass.net/images/expo_1.jpg",
     "description": "スポーツ催事・各種イベントの全体運営代行。英語・中国語・韓国語対応の多言語スタッフを提供。",
     "telephone": "+81-70-9401-9107",
     "email": "asano@ringclass.net",
@@ -379,7 +379,7 @@
       gap: 10px;
       z-index: 510;
     }
-    .nav-logo img { height: 36px; width: auto; }
+    .nav-logo img { height: 36px; width: auto; border-radius: 8px; }
     .nav-logo-text { line-height: 1.2; }
     .nav-logo-main {
       font-family: 'Oswald', sans-serif;
@@ -635,7 +635,7 @@
       position: absolute;
       inset: 0;
       background: var(--hero-bg) center/cover no-repeat;
-      opacity: .48;
+      opacity: 1;
       animation: bgZoom 20s ease-in-out infinite alternate;
       transition: transform .22s ease-out;
     }
@@ -643,8 +643,9 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to top,  rgba(4,20,48,.88) 0%, rgba(4,20,48,.42) 48%, rgba(0,20,48,.12) 100%),
-        linear-gradient(to right, rgba(0,15,40,.28) 0%, transparent 55%);
+        linear-gradient(to top,    rgba(0,0,0,.80) 0%,   rgba(0,0,0,.30) 45%, rgba(0,0,0,.10) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,.45) 0%,   transparent 30%),
+        linear-gradient(to right,  rgba(0,0,0,.55) 0%,   transparent 60%);
     }
     .hero-lights {
       position: absolute;
@@ -657,7 +658,7 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(18px);
-      opacity: .24;
+      opacity: 0;
       mix-blend-mode: screen;
       will-change: transform;
     }
@@ -767,6 +768,7 @@
       color: var(--white);
       line-height: 1.5;
       letter-spacing: .04em;
+      text-shadow: 0 2px 24px rgba(0,0,0,.85), 0 1px 6px rgba(0,0,0,.7);
     }
     .hero-vdivider {
       width: clamp(40px, 20vw, 80px);
@@ -779,14 +781,16 @@
       font-family: 'Noto Sans JP', sans-serif;
       font-size: clamp(14px, 1.5vw, 16px);
       font-weight: 400;
-      color: rgba(255,255,255,.78);
+      color: rgba(255,255,255,.92);
       line-height: 2.2;
       letter-spacing: .03em;
+      text-shadow: 0 1px 10px rgba(0,0,0,.9), 0 1px 3px rgba(0,0,0,.7);
     }
     .hero-sub {
       margin-top: 26px;
       font-size: clamp(14px, 1.5vw, 16px);
-      color: rgba(255,255,255,.75);
+      color: rgba(255,255,255,.92);
+      text-shadow: 0 1px 10px rgba(0,0,0,.9);
       max-width: 460px;
       line-height: 2;
       opacity: 0;
@@ -936,7 +940,7 @@
     .stats-wrap {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 18px var(--pad-h);
+      padding: clamp(32px, 5vw, 60px) var(--pad-h);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1px;
@@ -1410,8 +1414,8 @@
 
     /* 3D リングカルーセル */
     .works-stage {
-      height: 260px;
-      perspective: 600px;
+      height: 320px;
+      perspective: 700px;
       perspective-origin: 50% 50%;
       position: relative;
     }
@@ -1432,19 +1436,19 @@
       position: absolute;
       top: 0;
       left: 50%;
-      width: 140px;
-      margin-left: -70px;
+      width: 175px;
+      margin-left: -87px;
       background: #ffffff;
       border: 1px solid rgba(0,80,130,.08);
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,.14);
-      transform: rotateY(calc(var(--i) * (360deg / 7))) translateZ(220px);
+      transform: rotateY(calc(var(--i) * (360deg / 7))) translateZ(260px);
       cursor: default;
     }
     .wsc-img {
       width: 100%;
-      height: 100px;
+      height: 120px;
       object-fit: cover;
       display: block;
       filter: grayscale(15%) brightness(.9);
@@ -1453,7 +1457,7 @@
     .wsc:hover .wsc-img { filter: grayscale(0%) brightness(1); transform: scale(1.04); }
     .wsc-img-wrap {
       width: 100%;
-      height: 100px;
+      height: 120px;
       overflow: hidden;
       position: relative;
     }
@@ -1471,7 +1475,7 @@
     }
     .wsc-cat {
       font-family: 'DM Sans', sans-serif;
-      font-size: 8px;
+      font-size: 10px;
       font-weight: 600;
       letter-spacing: .10em;
       text-transform: uppercase;
@@ -1480,17 +1484,17 @@
     }
     .wsc-en {
       font-family: 'Oswald', sans-serif;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 500;
       letter-spacing: .03em;
       text-transform: uppercase;
       color: var(--black);
       line-height: 1.25;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
     .wsc-ja {
       font-family: 'Noto Sans JP', sans-serif;
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 400;
       color: var(--gray4);
       letter-spacing: .03em;
@@ -1511,7 +1515,7 @@
       max-width: var(--max-w);
       margin: 0 auto;
     }
-    .ft-logo { height: 36px; width: auto; filter: brightness(0) invert(1); }
+    .ft-logo { height: 36px; width: auto; border-radius: 8px; filter: brightness(0) invert(1); }
     .ft-brand-name {
       font-family: 'Oswald', sans-serif;
       font-size: 24px;
@@ -2147,11 +2151,74 @@
       transition: color .2s;
     }
     .footer-legal a:hover { color: rgba(255,255,255,.75); }
+
+    /* =====================================================
+       トースト通知
+       ===================================================== */
+    #toast {
+      position: fixed;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%) translateY(16px);
+      background: #0a4060;
+      color: #fff;
+      padding: 16px 28px;
+      border-radius: 6px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      line-height: 1.7;
+      text-align: center;
+      z-index: 9998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .38s var(--ease), transform .38s var(--ease);
+      box-shadow: 0 8px 32px rgba(0,0,0,.30);
+      max-width: min(460px, calc(100vw - 40px));
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+    #toast.toast-ok  { border-left: 4px solid #00c8ee; }
+    #toast.toast-err { border-left: 4px solid #e05555; }
+
+    /* フォームインラインエラー */
+    .ff-error {
+      font-size: 12px;
+      color: #e05555;
+      letter-spacing: .03em;
+      margin-top: 4px;
+      display: none;
+    }
+    .ff.has-error input,
+    .ff.has-error textarea,
+    .ff.has-error select {
+      border-color: #e05555 !important;
+      box-shadow: 0 0 0 3px rgba(224,85,85,.12) !important;
+    }
+    .ff.has-error .ff-error { display: block; }
+
+    /* ボタンローディング状態 */
+    .submit-btn .btn-spinner {
+      display: none;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spinBtn .7s linear infinite;
+      flex-shrink: 0;
+    }
+    .submit-btn.loading { opacity: .75; pointer-events: none; }
+    .submit-btn.loading .btn-spinner { display: block; }
+    .submit-btn.loading .btn-arrow   { display: none; }
+    @keyframes spinBtn { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
 
 <!-- 幾何学模様 背景レイヤー -->
+<div id="toast" role="status" aria-live="polite"></div>
+
 <div id="geo-bg" aria-hidden="true">
   <img class="geo-part" src="../image-parts/unnamed%20(1).png"  data-ox="8"  data-oy="15" style="width:100px">
   <img class="geo-part" src="../image-parts/unnamed%20(2).png"  data-ox="92" data-oy="72" style="width:72px">
@@ -2191,7 +2258,7 @@
   <div class="nav-inner">
     <a href="#home" class="nav-logo">
       <img
-        src="https://static.wixstatic.com/media/70f704_f99c3a7df2e345f59aeadcebf2ccccf7~mv2.png/v1/fill/w_144,h_108,al_c,q_85,enc_avif,quality_auto/70f704_f99c3a7df2e345f59aeadcebf2ccccf7~mv2.png"
+        src="../logo.png"
         alt="株式会社リングクラス ロゴ"
         decoding="async"
         fetchpriority="high"
@@ -2384,7 +2451,7 @@
     <div class="svc-grid">
 
       <!-- ★ SERVICE PHOTO 1 — src を差し替え -->
-      <div class="svc-card rv">
+      <div class="svc-card rv svc-light">
         <div class="svc-ph"><span class="svc-ph-num">01</span></div>
         <div class="svc-img-wrap">
           <img class="svc-img" src="../image-character/kikaku.jpg" alt="イベント企画・制作" loading="lazy">
@@ -2398,7 +2465,7 @@
       </div>
 
       <!-- ★ SERVICE PHOTO 2 -->
-      <div class="svc-card rv d1">
+      <div class="svc-card rv d1 svc-light">
         <div class="svc-ph"><span class="svc-ph-num">02</span></div>
         <div class="svc-img-wrap">
           <img class="svc-img" src="../image-character/event.jpg" alt="イベント運営管理" loading="lazy">
@@ -2426,7 +2493,7 @@
       </div>
 
       <!-- ★ SERVICE PHOTO 4 -->
-      <div class="svc-card rv">
+      <div class="svc-card rv svc-light">
         <div class="svc-ph"><span class="svc-ph-num">04</span></div>
         <div class="svc-img-wrap">
           <img class="svc-img" src="../image-character/gogaku.jpg" alt="語学対応スタッフ" loading="lazy">
@@ -2445,7 +2512,7 @@
       </div>
 
       <!-- ★ SERVICE PHOTO 5 -->
-      <div class="svc-card rv d1">
+      <div class="svc-card rv d1 svc-light">
         <div class="svc-ph"><span class="svc-ph-num">05</span></div>
         <div class="svc-img-wrap">
           <img class="svc-img" src="../image-character/staff.jpg" alt="スタッフ手配" loading="lazy">
@@ -2486,7 +2553,6 @@
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">Expo / World Fair</p>
-          <p class="wsc-en">OSAKA &amp; KANSAI<br>EXPO 2025</p>
           <p class="wsc-ja">大阪・関西万博</p>
         </div>
       </div>
@@ -2498,7 +2564,6 @@
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">International Event</p>
-          <p class="wsc-en">DEAFLYMPICS<br>COMPETITION</p>
           <p class="wsc-ja">デフリンピック</p>
         </div>
       </div>
@@ -2510,7 +2575,6 @@
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">International Event</p>
-          <p class="wsc-en">PARALYMPICS<br>COMPETITION</p>
           <p class="wsc-ja">パラリンピック</p>
         </div>
       </div>
@@ -2522,7 +2586,6 @@
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">Sports Event</p>
-          <p class="wsc-en">SPORTS<br>EVENT</p>
           <p class="wsc-ja">スポーツイベント</p>
         </div>
       </div>
@@ -2534,7 +2597,6 @@
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">International Event</p>
-          <p class="wsc-en">OVERSEAS<br>CORPORATE EVENT</p>
           <p class="wsc-ja">海外企業イベント</p>
         </div>
       </div>
@@ -2548,7 +2610,6 @@
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">PR Event</p>
-          <p class="wsc-en">PRODUCT<br>PR EVENT</p>
           <p class="wsc-ja">商品PRイベント</p>
         </div>
       </div>
@@ -2560,7 +2621,6 @@
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">Sports Festival</p>
-          <p class="wsc-en">NATIONAL<br>STADIUM</p>
           <p class="wsc-ja">国立競技場</p>
         </div>
       </div>
@@ -2698,54 +2758,60 @@
       <!-- フォーム -->
       <div class="rv d2">
         <!--
-          フォーム送信の設定方法:
-          方法A (推奨): Formspreeに無料登録し、下記フォームタグに追加
-                  <form action="https://formspree.io/f/YOUR_ID" method="POST">
-          方法B: Netlify Formsを使う場合は <form netlify>
+          【Formspree設定手順】
+          1. https://formspree.io/ で無料登録（月50件まで無料）
+          2. New Form を作成 → 発行された ID を下記 FORMSPREE_ENDPOINT の YOUR_FORM_ID に貼り付ける
         -->
-        <div class="form-grid">
-          <div class="ff">
-            <label>姓 *</label>
-            <input type="text" id="f-last" name="last_name" placeholder="山田" required>
+        <form id="contact-form" novalidate>
+          <div class="form-grid">
+            <div class="ff">
+              <label for="f-last">姓 *</label>
+              <input type="text" id="f-last" name="last_name" placeholder="山田" autocomplete="family-name">
+              <span class="ff-error" id="err-last">姓を入力してください</span>
+            </div>
+            <div class="ff">
+              <label for="f-first">名 *</label>
+              <input type="text" id="f-first" name="first_name" placeholder="太郎" autocomplete="given-name">
+              <span class="ff-error" id="err-first">名を入力してください</span>
+            </div>
+            <div class="ff full">
+              <label for="f-email">メールアドレス *</label>
+              <input type="email" id="f-email" name="email" placeholder="example@company.com" autocomplete="email">
+              <span class="ff-error" id="err-email">有効なメールアドレスを入力してください</span>
+            </div>
+            <div class="ff full">
+              <label for="f-type">お問い合わせの種類</label>
+              <select id="f-type" name="type">
+                <option value="">— 選択してください —</option>
+                <option>イベント企画・制作</option>
+                <option>イベント運営管理</option>
+                <option>ディレクター・ADサポート</option>
+                <option>語学対応スタッフ</option>
+                <option>スタッフ手配</option>
+                <option>その他</option>
+              </select>
+            </div>
+            <div class="ff full">
+              <label for="f-subject">件名</label>
+              <input type="text" id="f-subject" name="subject" placeholder="イベント運営代行についてご相談したい">
+            </div>
+            <div class="ff full">
+              <label for="f-msg">メッセージ *</label>
+              <textarea id="f-msg" name="message" rows="6" placeholder="イベント内容・日程・規模などを詳しくお聞かせください。"></textarea>
+              <span class="ff-error" id="err-msg">メッセージを入力してください</span>
+            </div>
           </div>
-          <div class="ff">
-            <label>名 *</label>
-            <input type="text" id="f-first" name="first_name" placeholder="太郎" required>
-          </div>
-          <div class="ff full">
-            <label>メールアドレス *</label>
-            <input type="email" id="f-email" name="email" placeholder="example@company.com" required>
-          </div>
-          <div class="ff full">
-            <label>お問い合わせの種類</label>
-            <select id="f-type" name="type">
-              <option value="">— 選択してください —</option>
-              <option>イベント企画・制作</option>
-              <option>イベント運営管理</option>
-              <option>ディレクター・ADサポート</option>
-              <option>語学対応スタッフ</option>
-              <option>スタッフ手配</option>
-              <option>その他</option>
-            </select>
-          </div>
-          <div class="ff full">
-            <label>件名</label>
-            <input type="text" id="f-subject" name="subject" placeholder="イベント運営代行についてご相談したい">
-          </div>
-          <div class="ff full">
-            <label>メッセージ *</label>
-            <textarea id="f-msg" name="message" rows="6" placeholder="イベント内容・日程・規模などを詳しくお聞かせください。" required></textarea>
-          </div>
-        </div>
 
-        <button type="button" class="submit-btn" id="submit-btn">
-          送信する
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-        <p class="form-note">
-          ※ 通常2営業日以内にご返信いたします。<br>
-          ※ お急ぎの場合は、電話でお問い合わせください。
-        </p>
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span>送信する</span>
+            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <p class="form-note">
+            ※ 通常2営業日以内にご返信いたします。<br>
+            ※ お急ぎの場合は、電話でお問い合わせください。
+          </p>
+        </form>
       </div>
 
     </div>
@@ -2761,7 +2827,7 @@
     <div>
       <img
         class="ft-logo"
-        src="https://static.wixstatic.com/media/70f704_f99c3a7df2e345f59aeadcebf2ccccf7~mv2.png/v1/fill/w_144,h_108,al_c,q_85,enc_avif,quality_auto/70f704_f99c3a7df2e345f59aeadcebf2ccccf7~mv2.png"
+        src="../logo.png"
         alt="株式会社リングクラス"
         decoding="async"
         loading="lazy"
@@ -3314,35 +3380,97 @@
     update();
   })();
 
-  /* お問い合わせフォーム（仮送信処理） */
-  document.getElementById('submit-btn').addEventListener('click', () => {
-    const last  = document.getElementById('f-last').value.trim();
-    const first = document.getElementById('f-first').value.trim();
-    const email = document.getElementById('f-email').value.trim();
-    const msg   = document.getElementById('f-msg').value.trim();
+  /* =========================================
+     お問い合わせフォーム送信（Formspree）
+     =========================================
+     【設定方法】
+     1. https://formspree.io/ で無料登録
+     2. New Form を作成 → 発行された ID を下記に貼り付ける
+  */
+  (function() {
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 
-    if (!last || !first || !email || !msg) {
-      alert('※ 必須項目（*）をすべて入力してください。');
-      return;
+    const form    = document.getElementById('contact-form');
+    const btn     = document.getElementById('submit-btn');
+    const toastEl = document.getElementById('toast');
+    let toastTimer = null;
+
+    function showToast(msg, type) {
+      clearTimeout(toastTimer);
+      toastEl.textContent = msg;
+      toastEl.className = 'show toast-' + type;
+      toastTimer = setTimeout(() => { toastEl.className = ''; }, 5000);
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert('※ メールアドレスの形式が正しくありません。');
-      return;
+
+    function setFieldError(fieldId, hasError) {
+      document.getElementById(fieldId).closest('.ff').classList.toggle('has-error', hasError);
     }
 
-    /* ▼ ここにFormspree等のAPIリクエストを追加してください
-    fetch('https://formspree.io/f/YOUR_ID', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ last, first, email, msg })
-    });
-    */
+    function validate() {
+      const last  = document.getElementById('f-last').value.trim();
+      const first = document.getElementById('f-first').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const msg   = document.getElementById('f-msg').value.trim();
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    alert('お問い合わせを受け付けました。\n2営業日以内にご連絡いたします。\n\nお急ぎの場合は 070-9401-9107 までお電話ください。');
-    ['f-last','f-first','f-email','f-type','f-subject','f-msg'].forEach(id => {
-      document.getElementById(id).value = '';
+      setFieldError('f-last',  !last);
+      setFieldError('f-first', !first);
+      setFieldError('f-email', !email || !emailOk);
+      setFieldError('f-msg',   !msg);
+
+      return !!(last && first && email && emailOk && msg);
+    }
+
+    /* 入力時にリアルタイムでエラー解除 */
+    ['f-last','f-first','f-email','f-msg'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => {
+        if (document.getElementById(id).closest('.ff').classList.contains('has-error')) {
+          validate();
+        }
+      });
     });
-  });
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!validate()) {
+        showToast('※ 必須項目をすべて正しく入力してください。', 'err');
+        return;
+      }
+
+      btn.classList.add('loading');
+
+      const data = {
+        last_name:  document.getElementById('f-last').value.trim(),
+        first_name: document.getElementById('f-first').value.trim(),
+        email:      document.getElementById('f-email').value.trim(),
+        type:       document.getElementById('f-type').value,
+        subject:    document.getElementById('f-subject').value.trim(),
+        message:    document.getElementById('f-msg').value.trim(),
+      };
+
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body:    JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          showToast('お問い合わせを受け付けました。\n2営業日以内にご連絡いたします。', 'ok');
+          form.reset();
+          document.querySelectorAll('.ff.has-error').forEach(el => el.classList.remove('has-error'));
+        } else {
+          const json = await res.json().catch(() => ({}));
+          const detail = json?.errors?.[0]?.message || '';
+          showToast('送信に失敗しました。' + (detail ? '\n' + detail : '\nしばらく経ってから再度お試しください。'), 'err');
+        }
+      } catch {
+        showToast('通信エラーが発生しました。\nお急ぎの場合は 070-9401-9107 までお電話ください。', 'err');
+      } finally {
+        btn.classList.remove('loading');
+      }
+    });
+  })();
 </script>
 
 </body>
