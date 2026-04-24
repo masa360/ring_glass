@@ -40,7 +40,7 @@
     "image": "https://ringclass.net/images/expo_1.jpg",
     "description": "スポーツ催事・各種イベントの全体運営代行。英語・中国語・韓国語対応の多言語スタッフを提供。",
     "telephone": "+81-70-9401-9107",
-    "email": "asano@ringclass.net",
+    "email": "info@ringclass.net",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "エクラート江坂ビル3階",
@@ -68,7 +68,7 @@
   <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
   <link rel="dns-prefetch" href="//static.wixstatic.com">
   <link rel="preload" as="image" href="../haikei.jpg" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Yuji+Syuku&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!--
   ★★★★★★★★★★★★★★★★★★★★★★★
@@ -189,7 +189,7 @@
     /* セクションラベル */
     .sec-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 600;
       letter-spacing: .28em;
       text-transform: uppercase;
@@ -209,7 +209,7 @@
     /* セクション大見出し */
     .sec-title {
       font-family: 'Oswald', sans-serif;
-      font-size: clamp(32px, 5vw, 64px);
+      font-size: clamp(26px, 4vw, 52px);
       font-weight: 600;
       line-height: .95;
       letter-spacing: .02em;
@@ -223,7 +223,7 @@
     .sec-sub {
       margin-top: 12px;
       font-family: 'Noto Sans JP', sans-serif;
-      font-size: clamp(16px, 1.8vw, 20px);
+      font-size: clamp(20px, 2.4vw, 28px);
       font-weight: 700;
       color: var(--text);
       letter-spacing: .06em;
@@ -356,9 +356,9 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 500;
-      background: rgba(4,18,40,.97);
-      border-bottom: 1px solid rgba(0,155,200,.20);
-      backdrop-filter: blur(14px);
+      background: rgba(8,40,80,.82);
+      border-bottom: 1px solid rgba(0,180,230,.25);
+      backdrop-filter: blur(18px);
       transition: box-shadow .3s;
     }
     nav.scrolled {
@@ -390,7 +390,7 @@
     }
     .nav-logo-sub {
       font-size: 9px;
-      color: var(--gray4);
+      color: rgba(180,225,255,.75);
       letter-spacing: .04em;
     }
     .nav-links {
@@ -404,7 +404,7 @@
       font-weight: 500;
       letter-spacing: .10em;
       text-transform: uppercase;
-      color: rgba(200,235,255,.92);
+      color: rgba(220,245,255,.98);
       position: relative;
       padding-bottom: 4px;
     }
@@ -424,15 +424,25 @@
       z-index: 510;
     }
     .nav-ig {
-      width: 34px; height: 34px;
-      border: 1px solid var(--gray2);
-      border-radius: 50%;
+      height: 34px;
+      min-width: 34px;
+      border: 1.5px solid rgba(255,255,255,.75);
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: border-color .25s, background .25s;
+      color: rgba(255,255,255,1);
+      padding: 0 10px;
+      gap: 5px;
+      transition: border-color .25s, background .25s, color .25s;
     }
-    .nav-ig:hover { border-color: rgba(0,158,197,.5); background: rgba(255,255,255,.06); }
+    .nav-ig:hover { border-color: var(--yellow); color: var(--yellow); background: rgba(255,255,255,.06); }
+    .nav-note-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
     .nav-contact-btn {
       display: none;
       font-family: 'Noto Sans JP', sans-serif;
@@ -636,7 +646,7 @@
       inset: 0;
       background: var(--hero-bg) center/cover no-repeat;
       opacity: 1;
-      animation: bgZoom 20s ease-in-out infinite alternate;
+      animation: heroZoomIn 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
       transition: transform .22s ease-out;
     }
     .hero-overlay {
@@ -702,6 +712,7 @@
     }
     .hero.mouse-on .hero-spot { opacity: 1; }
     @keyframes bgZoom { from{transform:scale(1)} to{transform:scale(1.06)} }
+    @keyframes heroZoomIn { from{transform:scale(1.18)} to{transform:scale(1.0)} }
     @keyframes lightFloatA { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(40px, -28px, 0); } }
     @keyframes lightFloatB { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-36px, 22px, 0); } }
     @keyframes lightFloatC { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(24px, -20px, 0); } }
@@ -763,12 +774,13 @@
     }
     .hero-catch-wrap { flex: 0 0 auto; }
     .hero-catch {
-      font-family: 'Yuji Syuku', serif;
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 600;
       font-size: clamp(28px, 7vw, 44px);
       color: var(--white);
-      line-height: 1.5;
-      letter-spacing: .04em;
-      text-shadow: 0 2px 24px rgba(0,0,0,.85), 0 1px 6px rgba(0,0,0,.7);
+      line-height: 1.6;
+      letter-spacing: .06em;
+      text-shadow: 0 2px 24px rgba(0,0,0,.75), 0 1px 6px rgba(0,0,0,.55);
     }
     .hero-vdivider {
       width: clamp(40px, 20vw, 80px);
@@ -778,13 +790,13 @@
     }
     .hero-copy-wrap { flex: 1; }
     .hero-copy {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: clamp(14px, 1.5vw, 16px);
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(13px, 1.4vw, 15px);
       font-weight: 400;
-      color: rgba(255,255,255,.92);
-      line-height: 2.2;
-      letter-spacing: .03em;
-      text-shadow: 0 1px 10px rgba(0,0,0,.9), 0 1px 3px rgba(0,0,0,.7);
+      color: rgba(255,255,255,.88);
+      line-height: 2.5;
+      letter-spacing: .08em;
+      text-shadow: 0 1px 10px rgba(0,0,0,.85), 0 1px 3px rgba(0,0,0,.6);
     }
     .hero-sub {
       margin-top: 26px;
@@ -1418,6 +1430,21 @@
       perspective: 700px;
       perspective-origin: 50% 50%;
       position: relative;
+      margin-top: 120px;
+    }
+    @media (max-width: 599px) {
+      .works-scroll-section {
+        display: flex;
+        flex-direction: column;
+      }
+      .works-scroll-head {
+        order: 1;
+        margin-bottom: 24px;
+      }
+      .works-stage {
+        order: 2;
+        margin-top: 0;
+      }
     }
     .works-ring {
       width: 100%;
@@ -1450,6 +1477,7 @@
       width: 100%;
       height: 120px;
       object-fit: cover;
+      object-position: center 65%;
       display: block;
       filter: grayscale(15%) brightness(.9);
       transition: filter .5s, transform .5s var(--ease);
@@ -1569,7 +1597,7 @@
 
     /* 重いセクションは画面内に入るまで描画を遅延 */
     .service-section,
-    .journal-section,
+    .own-events-section,
     .message-section,
     .contact-section,
     .footer {
@@ -1699,16 +1727,6 @@
       pointer-events: none;
     }
 
-    /* =====================================================
-       ヒーローパーティクル
-       ===================================================== */
-    #particles {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      pointer-events: none;
-      opacity: .7;
-    }
 
     /* =====================================================
        グレインオーバーレイ
@@ -1972,54 +1990,75 @@
     }
 
     /* =====================================================
-       ジャーナルセクション（本文は note のみ。サイト上に記事プレビューは出さない）
+       自社企画イベントセクション
        ===================================================== */
-    .journal-section {
+    .own-events-section {
       padding: var(--pad-v) 0;
     }
-    .journal-content-wrapper {
+    .own-events-body {
+      margin-top: 28px;
       display: flex;
-      gap: 40px;
-      justify-content: center;
-      align-items: flex-start;
+      align-items: center;
+      gap: 32px;
       flex-wrap: wrap;
-      margin-top: 12px;
     }
-    .journal-note-panel {
-      flex: 1;
-      min-width: 280px;
-      max-width: 380px;
-      padding: clamp(28px, 4vw, 48px) clamp(24px, 4vw, 40px);
-      background: var(--bg-surface);
-      border: 1px solid var(--gray2);
-      text-align: center;
-      border-radius: 8px;
-    }
-    .journal-instagram-panel {
-      display: flex;
-      justify-content: center;
-      flex: 0 1 auto;
-    }
-    .journal-instagram-panel iframe {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    .journal-note-lead {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: clamp(14px, 1.5vw, 16px);
-      font-weight: 400;
+    .own-events-desc {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(15px, 1.6vw, 18px);
       color: var(--text);
-      line-height: 1.85;
-      margin: 0 0 24px;
+      letter-spacing: .08em;
+      line-height: 1.9;
     }
-    .journal-note-lead strong {
-      font-weight: 700;
-      color: var(--black);
-    }
-    .journal-note-btn {
+    .own-events-link {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      gap: 6px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--yellow);
+      border-bottom: 1px solid rgba(0,136,170,.35);
+      padding-bottom: 3px;
+      transition: color .2s, border-color .2s;
+      white-space: nowrap;
+    }
+    .own-events-link:hover { color: var(--black); border-color: var(--black); }
+    .own-events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .own-event-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--gray2);
+      border-radius: 8px;
+      padding: clamp(24px, 3vw, 36px) clamp(20px, 3vw, 32px);
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+    .own-event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.08);
+    }
+    .own-event-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .own-event-title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(18px, 2vw, 22px);
+      font-weight: 700;
+      color: var(--black);
+      margin: 0;
+      line-height: 1.4;
+    }
+    .own-event-desc {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(13px, 1.4vw, 15px);
+      color: var(--text);
+      line-height: 1.85;
+      margin: 0;
     }
 
     /* =====================================================
@@ -2274,14 +2313,16 @@
       <li><a href="about.html">ABOUT<span class="nav-ja">実績・会社概要</span></a></li>
       <li><a href="#message">MESSAGE<span class="nav-ja">代表メッセージ</span></a></li>
       <li><a href="recruit.html">RECRUIT<span class="nav-ja">採用情報</span></a></li>
-      <li><a href="#contact">CONTACT<span class="nav-ja">お問い合わせ</span></a></li>
     </ul>
 
     <div class="nav-right">
       <a href="https://www.instagram.com/ringclass0113" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="#contact" class="nav-contact-btn">お問い合わせ</a>
+      <a href="https://note.com/ringclass" target="_blank" rel="noopener" class="nav-ig" aria-label="note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 7v10M8 7l8 10M16 7v10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="nav-note-label">note</span>
+      </a>
       <button class="hamburger" id="hamburger" aria-label="メニュー">
         <span></span><span></span><span></span>
       </button>
@@ -2369,7 +2410,7 @@
   <div class="mm-footer">
     <div class="mm-contact-info">
       <a href="tel:07094019107">070-9401-9107</a>
-      <a href="mailto:asano@ringclass.net">asano@ringclass.net</a>
+      <a href="mailto:info@ringclass.net">info@ringclass.net</a>
     </div>
     <a href="https://www.instagram.com/ringclass0113" target="_blank" rel="noopener" class="mm-ig-btn">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -2384,16 +2425,13 @@
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
-  <canvas id="particles" aria-hidden="true"></canvas>
   <div class="hero-lights" aria-hidden="true">
-    <span class="hero-light a"></span>
     <span class="hero-light b"></span>
     <span class="hero-light c"></span>
   </div>
   <div class="hero-spot" id="hero-spot" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <p class="hero-eyebrow">Event Operation &nbsp;·&nbsp; Sports &nbsp;·&nbsp; Entertainment &nbsp;·&nbsp; Multilingual Staff</p>
     <div class="hero-body">
       <div class="hero-catch-wrap">
         <p class="hero-catch">縁をつなぎ、<br>感動を運ぶ。</p>
@@ -2407,7 +2445,6 @@
           派手さより、つながりと笑顔を。<br>
           関西発——現場目線のイベント会社。
         </p>
-        <a href="about.html" class="btn-outline-light" style="margin-top:24px;">会社概要 <span style="margin-left:4px;">→</span></a>
       </div>
     </div>
   </div>
@@ -2631,29 +2668,20 @@
 
 
 <!-- =====================================================
-     JOURNAL — ジャーナル
+     En's Festa — 自社企画イベント
      ===================================================== -->
-<section class="journal-section" id="journal">
+<section class="own-events-section" id="own-events">
   <div class="wrap">
     <div class="sec-head row rv">
       <div>
-        <p class="sec-label">Journal</p>
-        <h2 class="sec-title">RC JOURNAL</h2>
-        <p class="sec-sub">ジャーナル・コラム</p>
+        <p class="sec-label">Own Events</p>
+        <h2 class="sec-title">En&rsquo;s Festa</h2>
+        <p class="sec-sub">リングクラスが企画・主催するイベント</p>
       </div>
     </div>
-
-    <div class="journal-content-wrapper rv">
-      <div class="journal-note-panel">
-        <p class="journal-note-lead">コラムやレポートの本文は <strong>note</strong> で公開しています。</p>
-        <a href="https://note.com/ringclass" class="btn-dark journal-note-btn" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5m-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11m3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
-          note を見る
-        </a>
-      </div>
-      <div class="journal-instagram-panel">
-        <iframe src="https://www.instagram.com/ringclass0113/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-      </div>
+    <div class="own-events-body rv">
+      <p class="own-events-desc">６月より本格始動。note や Instagram でも公開中。</p>
+      <a href="ens-festa.html" class="own-events-link">過去実績を見る <span>→</span></a>
     </div>
   </div>
 </section>
@@ -2736,7 +2764,7 @@
           </div>
           <div class="ci">
             <div class="ci-lbl">Email</div>
-            <div class="ci-val"><a href="mailto:asano@ringclass.net">asano@ringclass.net</a></div>
+            <div class="ci-val"><a href="mailto:info@ringclass.net">info@ringclass.net</a></div>
           </div>
           <div class="ci">
             <div class="ci-lbl">Address</div>
@@ -2744,12 +2772,6 @@
               〒564-0051<br>
               大阪府吹田市<br>
               エクラート江坂ビル 3階
-            </div>
-          </div>
-          <div class="ci">
-            <div class="ci-lbl">SNS</div>
-            <div class="ci-val">
-              <a href="https://www.instagram.com/ringclass0113" target="_blank" rel="noopener">Instagram: @ringclass0113</a>
             </div>
           </div>
         </div>
@@ -2825,24 +2847,12 @@
   <div class="footer-main">
 
     <div>
-      <img
-        class="ft-logo"
-        src="../logo.png"
-        alt="株式会社リングクラス"
-        decoding="async"
-        loading="lazy"
-      >
       <div class="ft-brand-name">株式会社リングクラス</div>
       <div class="ft-brand-sub">RING CLASS Co., Ltd.</div>
       <p class="ft-brand-catch">
         心震わせる感動の空間へ。<br>
         一緒に奇跡を見届けよう。
       </p>
-      <div class="ft-sns">
-        <a href="https://www.instagram.com/ringclass0113" target="_blank" rel="noopener" class="ft-sns-btn" aria-label="Instagram">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-      </div>
     </div>
 
     <div>
@@ -2875,7 +2885,7 @@
         <a href="tel:07094019107">070-9401-9107</a>
       </div>
       <div class="ft-info">
-        <a href="mailto:asano@ringclass.net">asano@ringclass.net</a>
+        <a href="mailto:info@ringclass.net">info@ringclass.net</a>
       </div>
       <div class="ft-info">
         〒564-0051<br>
@@ -2884,13 +2894,6 @@
       </div>
     </div>
 
-  </div>
-
-  <div class="footer-cert">
-    <span class="cert-label">Certifications</span>
-    <span class="cert-badge">プライバシーポリシー準拠</span>
-    <span class="cert-badge">ISO準拠</span>
-    <span class="cert-badge">個人情報保護</span>
   </div>
 
   <div class="footer-bottom">
@@ -3135,96 +3138,6 @@
     update();
   })();
 
-  /* =========================================
-     ヒーローパーティクル (Canvas)
-     ========================================= */
-  (function() {
-    const canvas = document.getElementById('particles');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let W = 0, H = 0;
-
-    const resize = () => {
-      W = canvas.width  = canvas.offsetWidth;
-      H = canvas.height = canvas.offsetHeight;
-    };
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    const COLORS = ['232,192,32', '255,220,60', '255,255,255', '255,160,40'];
-    const pts = Array.from({ length: 70 }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: Math.random() * 2.2 + 0.4,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: -(Math.random() * 0.55 + 0.18),
-      a: Math.random() * 0.55 + 0.12,
-      da: Math.random() * 0.0008 + 0.0003,
-      c: COLORS[Math.floor(Math.random() * COLORS.length)],
-    }));
-
-    const reset = p => {
-      p.x  = Math.random() * W;
-      p.y  = H + 6;
-      p.a  = Math.random() * 0.65 + 0.15;
-      p.vx = (Math.random() - 0.5) * 0.4;
-      p.vy = -(Math.random() * 0.65 + 0.2);
-      p.c  = COLORS[Math.floor(Math.random() * COLORS.length)];
-      p.r  = Math.random() * 2.4 + 0.5;
-    };
-
-    let raf;
-    const CONNECT_DIST = 90;
-    const draw = () => {
-      ctx.clearRect(0, 0, W, H);
-
-      // パーティクル間のコネクションライン（近いものだけ）
-      for (let i = 0; i < pts.length; i++) {
-        for (let j = i + 1; j < pts.length; j++) {
-          const dx  = pts[i].x - pts[j].x;
-          const dy  = pts[i].y - pts[j].y;
-          const d   = Math.sqrt(dx * dx + dy * dy);
-          if (d < CONNECT_DIST) {
-            const alpha = (1 - d / CONNECT_DIST) * 0.12 * Math.min(pts[i].a, pts[j].a) * 2;
-            ctx.beginPath();
-            ctx.moveTo(pts[i].x, pts[i].y);
-            ctx.lineTo(pts[j].x, pts[j].y);
-            ctx.strokeStyle = `rgba(0,158,197,${alpha.toFixed(3)})`;
-            ctx.lineWidth   = 0.6;
-            ctx.stroke();
-          }
-        }
-      }
-
-      // パーティクル本体（グロー付き）
-      for (const p of pts) {
-        // グロー
-        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3.5);
-        grad.addColorStop(0,   `rgba(${p.c},${(p.a * 0.7).toFixed(3)})`);
-        grad.addColorStop(1,   `rgba(${p.c},0)`);
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
-        // コア
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${p.c},${p.a.toFixed(3)})`;
-        ctx.fill();
-
-        p.x += p.vx; p.y += p.vy; p.a -= p.da;
-        if (p.y < -6 || p.a <= 0) reset(p);
-      }
-      raf = requestAnimationFrame(draw);
-    };
-    draw();
-
-    // ページ離れたら停止
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) cancelAnimationFrame(raf);
-      else draw();
-    });
-  })();
 
   /* =========================================
      マグネティックボタン
