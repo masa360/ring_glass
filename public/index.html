@@ -67,7 +67,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
   <link rel="dns-prefetch" href="//static.wixstatic.com">
-  <link rel="preload" as="image" href="../haikei.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-bg.jpg" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!--
@@ -110,7 +110,7 @@
       --bg-surface: #ffffff;   /* ★ white surface */
 
       /* ★ HERO BG — 背景写真のURLをここに入れる */
-      --hero-bg: url('../haikei.jpg');
+      --hero-bg: url('assets/hero-bg.jpg');
 
       --pad-v:  clamp(64px, 9vw, 120px);
       --pad-h:  clamp(20px, 5vw, 64px);
@@ -776,7 +776,7 @@
     .hero-catch {
       font-family: 'Shippori Mincho', serif;
       font-weight: 600;
-      font-size: clamp(28px, 7vw, 44px);
+      font-size: clamp(22px, 5vw, 34px);
       color: var(--white);
       line-height: 1.6;
       letter-spacing: .06em;
@@ -1628,7 +1628,7 @@
       /* ヒーロー：横並び */
       .hero-body    { flex-direction: row; align-items: center; gap: clamp(24px, 5vw, 64px); }
       .hero-vdivider{ width: 1px; height: clamp(60px, 8vw, 90px); }
-      .hero-catch   { font-size: clamp(34px, 5.5vw, 68px); }
+      .hero-catch   { font-size: clamp(26px, 3.4vw, 44px); }
       .hero-cats    { display: flex; }
 
       /* セクションヘッダー横並び */
@@ -2259,17 +2259,17 @@
 <div id="toast" role="status" aria-live="polite"></div>
 
 <div id="geo-bg" aria-hidden="true">
-  <img class="geo-part" src="../image-parts/unnamed%20(1).png"  data-ox="8"  data-oy="15" style="width:100px">
-  <img class="geo-part" src="../image-parts/unnamed%20(2).png"  data-ox="92" data-oy="72" style="width:72px">
-  <img class="geo-part" src="../image-parts/unnamed%20(3).png"  data-ox="55" data-oy="88" style="width:120px">
-  <img class="geo-part" src="../image-parts/unnamed%20(4).png"  data-ox="80" data-oy="10" style="width:80px">
-  <img class="geo-part" src="../image-parts/unnamed%20(5).png"  data-ox="28" data-oy="58" style="width:90px">
-  <img class="geo-part" src="../image-parts/unnamed%20(6).png"  data-ox="16" data-oy="38" style="width:65px">
-  <img class="geo-part" src="../image-parts/unnamed%20(7).png"  data-ox="72" data-oy="25" style="width:110px">
-  <img class="geo-part" src="../image-parts/unnamed%20(8).png"  data-ox="88" data-oy="54" style="width:75px">
-  <img class="geo-part" src="../image-parts/unnamed%20(9).png"  data-ox="10" data-oy="80" style="width:85px">
-  <img class="geo-part" src="../image-parts/unnamed%20(10).png" data-ox="45" data-oy="6"  style="width:95px">
-  <img class="geo-part" src="../image-parts/unnamed%20(11).png" data-ox="62" data-oy="94" style="width:68px">
+  <img class="geo-part" src="assets/decorations/decoration-01.png" data-ox="8"  data-oy="15" style="width:100px">
+  <img class="geo-part" src="assets/decorations/decoration-02.png" data-ox="92" data-oy="72" style="width:72px">
+  <img class="geo-part" src="assets/decorations/decoration-03.png" data-ox="55" data-oy="88" style="width:120px">
+  <img class="geo-part" src="assets/decorations/decoration-04.png" data-ox="80" data-oy="10" style="width:80px">
+  <img class="geo-part" src="assets/decorations/decoration-05.png" data-ox="28" data-oy="58" style="width:90px">
+  <img class="geo-part" src="assets/decorations/decoration-06.png" data-ox="16" data-oy="38" style="width:65px">
+  <img class="geo-part" src="assets/decorations/decoration-07.png" data-ox="72" data-oy="25" style="width:110px">
+  <img class="geo-part" src="assets/decorations/decoration-08.png" data-ox="88" data-oy="54" style="width:75px">
+  <img class="geo-part" src="assets/decorations/decoration-09.png" data-ox="10" data-oy="80" style="width:85px">
+  <img class="geo-part" src="assets/decorations/decoration-10.png" data-ox="45" data-oy="6"  style="width:95px">
+  <img class="geo-part" src="assets/decorations/decoration-11.png" data-ox="62" data-oy="94" style="width:68px">
 </div>
 
 <!-- カスタムカーソル -->
@@ -2286,7 +2286,7 @@
      ===================================================== -->
 <div id="float-cta">
   <a href="#contact">
-    <img src="../image-character/scroll.jpg" alt="無料相談">
+    <img src="assets/icons/scroll.jpg" alt="無料相談">
   </a>
 </div>
 
@@ -2297,7 +2297,7 @@
   <div class="nav-inner">
     <a href="#home" class="nav-logo">
       <img
-        src="../logo.png"
+        src="assets/logo.png"
         alt="株式会社リングクラス ロゴ"
         decoding="async"
         fetchpriority="high"
@@ -2491,7 +2491,7 @@
       <div class="svc-card rv svc-light">
         <div class="svc-ph"><span class="svc-ph-num">01</span></div>
         <div class="svc-img-wrap">
-          <img class="svc-img" src="../image-character/kikaku.jpg" alt="イベント企画・制作" loading="lazy">
+          <img class="svc-img" src="assets/icons/kikaku.jpg" alt="イベント企画・制作" loading="lazy">
         </div>
         <div class="svc-overlay"></div>
         <div class="svc-info">
@@ -2505,7 +2505,7 @@
       <div class="svc-card rv d1 svc-light">
         <div class="svc-ph"><span class="svc-ph-num">02</span></div>
         <div class="svc-img-wrap">
-          <img class="svc-img" src="../image-character/event.jpg" alt="イベント運営管理" loading="lazy">
+          <img class="svc-img" src="assets/icons/event.jpg" alt="イベント運営管理" loading="lazy">
         </div>
         <div class="svc-overlay"></div>
         <div class="svc-info">
@@ -2519,7 +2519,7 @@
       <div class="svc-card rv d2 svc-light">
         <div class="svc-ph"><span class="svc-ph-num">03</span></div>
         <div class="svc-img-wrap">
-          <img class="svc-img" src="../image-character/director.jpg" alt="ディレクター・ADサポート" loading="lazy">
+          <img class="svc-img" src="assets/icons/director.jpg" alt="ディレクター・ADサポート" loading="lazy">
         </div>
         <div class="svc-overlay"></div>
         <div class="svc-info">
@@ -2533,7 +2533,7 @@
       <div class="svc-card rv svc-light">
         <div class="svc-ph"><span class="svc-ph-num">04</span></div>
         <div class="svc-img-wrap">
-          <img class="svc-img" src="../image-character/gogaku.jpg" alt="語学対応スタッフ" loading="lazy">
+          <img class="svc-img" src="assets/icons/gogaku.jpg" alt="語学対応スタッフ" loading="lazy">
         </div>
         <div class="svc-overlay"></div>
         <div class="svc-info">
@@ -2552,7 +2552,7 @@
       <div class="svc-card rv d1 svc-light">
         <div class="svc-ph"><span class="svc-ph-num">05</span></div>
         <div class="svc-img-wrap">
-          <img class="svc-img" src="../image-character/staff.jpg" alt="スタッフ手配" loading="lazy">
+          <img class="svc-img" src="assets/icons/staff.jpg" alt="スタッフ手配" loading="lazy">
         </div>
         <div class="svc-overlay"></div>
         <div class="svc-info">
@@ -2586,7 +2586,7 @@
       <!-- 01 -->
       <div class="wsc" style="--i:0">
         <div class="wsc-img-wrap">
-          <img class="wsc-img" src="../images/expo_1.jpg" alt="大阪・関西万博" loading="lazy">
+          <img class="wsc-img" src="assets/images/expo_1.jpg" alt="大阪・関西万博" loading="lazy">
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">Expo / World Fair</p>
@@ -2597,7 +2597,7 @@
       <!-- 02 -->
       <div class="wsc" style="--i:1">
         <div class="wsc-img-wrap">
-          <img class="wsc-img" src="../images/deaflympics.jpg" alt="デフリンピック" loading="lazy">
+          <img class="wsc-img" src="assets/images/deaflympics.jpg" alt="デフリンピック" loading="lazy">
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">International Event</p>
@@ -2608,7 +2608,7 @@
       <!-- 03 -->
       <div class="wsc" style="--i:2">
         <div class="wsc-img-wrap">
-          <img class="wsc-img" src="../images/paralympics.jpg" alt="パラリンピック" loading="lazy">
+          <img class="wsc-img" src="assets/images/paralympics.jpg" alt="パラリンピック" loading="lazy">
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">International Event</p>
@@ -2619,7 +2619,7 @@
       <!-- 04 -->
       <div class="wsc" style="--i:3">
         <div class="wsc-img-wrap">
-          <img class="wsc-img" src="../images/sports_1.jpg" alt="スポーツイベント" loading="lazy">
+          <img class="wsc-img" src="assets/images/sports_1.jpg" alt="スポーツイベント" loading="lazy">
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">Sports Event</p>
@@ -2630,7 +2630,7 @@
       <!-- 05 -->
       <div class="wsc" style="--i:4">
         <div class="wsc-img-wrap">
-          <img class="wsc-img" src="../images/overseas.jpg" alt="海外企業イベント" loading="lazy">
+          <img class="wsc-img" src="assets/images/overseas.jpg" alt="海外企業イベント" loading="lazy">
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">International Event</p>
@@ -2654,7 +2654,7 @@
       <!-- 07 -->
       <div class="wsc" style="--i:6">
         <div class="wsc-img-wrap">
-          <img class="wsc-img" src="../images/soccer.jpg" alt="国立競技場" loading="lazy">
+          <img class="wsc-img" src="assets/images/soccer.jpg" alt="国立競技場" loading="lazy">
         </div>
         <div class="wsc-body">
           <p class="wsc-cat">Sports Festival</p>
@@ -3227,7 +3227,7 @@
      ========================================= */
 
   /* =========================================
-     image-parts スクロール収束アニメーション
+     decorations スクロール収束アニメーション
      ========================================= */
   (function() {
     const parts = Array.from(document.querySelectorAll('#geo-bg .geo-part'));
