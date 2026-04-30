@@ -3,7 +3,7 @@
 GitHubのmainブランチにpushすると、自動でエックスサーバーの本番環境に公開される仕組みを構築する手順書です。
 
 公開URL：`https://クライアントの独自ドメイン/`
-公開元：このリポジトリの `v1/` フォルダ
+公開元：このリポジトリの `public/` フォルダ
 
 ---
 
@@ -111,7 +111,7 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           server-dir: ${{ secrets.FTP_DIR }}
-          local-dir: ./v1/
+          local-dir: ./public/
           exclude: |
             **/.git*
             **/.git*/**
@@ -168,7 +168,7 @@ git push origin main
 
 以降、サイトの更新は以下の流れだけで完了します。
 
-1. ローカルで `v1/` 配下のファイルを編集
+1. ローカルで `public/` 配下のファイルを編集
 2. `git add` → `git commit` → `git push origin main`
 3. GitHub Actionsが自動でエックスサーバーに反映（数十秒〜1分程度）
 4. ブラウザで反映を確認
