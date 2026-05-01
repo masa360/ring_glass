@@ -789,14 +789,29 @@
       flex-shrink: 0;
     }
     .hero-copy-wrap { flex: 1; }
-    .hero-copy {
+    .hero-letter {
+      display: flex;
+      flex-direction: column;
+      background: rgba(0,0,0,.38);
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 6px;
+      padding: .4em 0 .2em;
+      overflow: hidden;
+    }
+    .hero-letter span {
       font-family: 'Shippori Mincho', serif;
-      font-size: clamp(13px, 1.4vw, 15px);
-      font-weight: 400;
-      color: rgba(255,255,255,.88);
-      line-height: 2.5;
-      letter-spacing: .08em;
-      text-shadow: 0 1px 10px rgba(0,0,0,.85), 0 1px 3px rgba(0,0,0,.6);
+      font-size: clamp(14px, 1.5vw, 16px);
+      font-weight: 500;
+      color: rgba(255,255,255,.96);
+      letter-spacing: .1em;
+      text-shadow: 0 1px 8px rgba(0,0,0,.9);
+      padding: .55em 1.2em;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+      line-height: 1.5;
+    }
+    .hero-letter span:last-child {
+      border-bottom: none;
     }
     .hero-sub {
       margin-top: 26px;
@@ -2438,13 +2453,13 @@
       </div>
       <div class="hero-vdivider"></div>
       <div class="hero-copy-wrap">
-        <p class="hero-copy">
-          人が集まる場所には何かが生まれる。<br>
-          小さなイベントも、大きな舞台も、<br>
-          最後まで伴走してしっかりと運営する。<br>
-          派手さより、繋がりと笑顔を。<br>
-          現場目線のイベント会社。
-        </p>
+        <div class="hero-letter">
+          <span>人が集まる場所には何かが生まれる。</span>
+          <span>小さなイベントも、大きな舞台も、</span>
+          <span>最後まで伴走してしっかりと運営する。</span>
+          <span>派手さより、繋がりと笑顔を。</span>
+          <span>現場目線のイベント会社。</span>
+        </div>
       </div>
     </div>
   </div>
