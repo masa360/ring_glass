@@ -1612,47 +1612,6 @@
       margin-top: 140px;
       width: 100%;
     }
-    @media (max-width: 639px) {
-      .works-scroll-section {
-        padding-bottom: clamp(32px, 5vw, 56px);
-      }
-      .works-scroll-head {
-        margin-bottom: 20px;
-      }
-      /* 3D → 横スクロールスナップに切り替え */
-      .works-stage {
-        height: auto;
-        perspective: none;
-        margin-top: 0;
-        overflow-x: auto;
-        overflow-y: visible;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-      }
-      .works-stage::-webkit-scrollbar { display: none; }
-      .works-ring {
-        position: static;
-        width: max-content;
-        height: auto;
-        transform-style: flat;
-        animation: none !important;
-        display: flex;
-        gap: 14px;
-        padding: 4px clamp(16px, 5vw, 40px) 20px;
-      }
-      .wsc {
-        position: static;
-        transform: none !important;
-        width: 200px;
-        margin-left: 0;
-        flex-shrink: 0;
-        scroll-snap-align: start;
-        box-shadow: 0 4px 16px rgba(0,0,0,.12);
-      }
-      .wsc-img-wrap { height: 130px; }
-      .wsc-img { height: 130px; }
-    }
     .works-ring {
       width: 100%;
       height: 100%;
@@ -1733,6 +1692,49 @@
       font-weight: 400;
       color: var(--gray4);
       letter-spacing: .03em;
+    }
+
+    /* WORKS モバイル: 3D → 横スクロールスナップ */
+    @media (max-width: 639px) {
+      .works-scroll-section {
+        overflow: visible;
+        padding-bottom: clamp(32px, 5vw, 56px);
+      }
+      .works-scroll-head {
+        margin-bottom: 20px;
+      }
+      .works-stage {
+        height: auto;
+        perspective: none;
+        margin-top: 0;
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+      .works-stage::-webkit-scrollbar { display: none; }
+      .works-ring {
+        position: static;
+        width: max-content;
+        height: auto;
+        transform-style: flat;
+        animation: none !important;
+        display: flex;
+        gap: 14px;
+        padding: 4px clamp(16px, 5vw, 40px) 20px;
+      }
+      .wsc {
+        position: static;
+        transform: none !important;
+        width: 200px;
+        margin-left: 0;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        box-shadow: 0 4px 16px rgba(0,0,0,.12);
+      }
+      .wsc-img-wrap { height: 130px; }
+      .wsc-img { height: 130px; }
     }
 
     /* =====================================================
