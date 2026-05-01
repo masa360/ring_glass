@@ -106,7 +106,7 @@
       --gray4:      rgba(0,50,90,0.78);     /* secondary text — improved contrast */
       --text:       #1a3a4f;   /* main body text — darker for readability */
       --yellow:     #0088aa;   /* ★ deeper teal accent — better contrast */
-      --bg-body:    #f7f8fa;   /* ★ neutral warm-gray base */
+      --bg-body:    #eeeef0;   /* ★ neutral warm-gray base */
       --bg-surface: #ffffff;   /* ★ white surface */
 
       /* ★ HERO BG — 背景写真のURLをここに入れる */
@@ -172,6 +172,8 @@
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 0 var(--pad-h);
+      position: relative;
+      z-index: 2;
     }
 
     /* スクロール出現 */
@@ -437,10 +439,32 @@
       transition: border-color .25s, background .25s, color .25s;
     }
     .nav-ig:hover { border-color: var(--yellow); color: var(--yellow); background: rgba(255,255,255,.06); }
+    /* Instagram — 公式グラデーション */
+    .nav-ig-instagram {
+      border-color: transparent;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #fff;
+    }
+    .nav-ig-instagram:hover {
+      border-color: transparent;
+      background: linear-gradient(45deg, #e8862a 0%, #d95c32 25%, #ca2038 50%, #ba1a5c 75%, #a81278 100%);
+      color: #fff;
+    }
+    /* note — 白地・黒文字 */
+    .nav-ig-note {
+      border-color: #fff;
+      background: #fff;
+      color: #000;
+    }
+    .nav-ig-note:hover {
+      border-color: #ddd;
+      background: #f0f0f0;
+      color: #000;
+    }
     .nav-note-label {
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: .04em;
     }
     .nav-contact-btn {
@@ -629,6 +653,86 @@
     .hamburger.on-dark span { background: var(--white) !important; }
 
     /* =====================================================
+       WARM GLOW — セクション装飾
+       ===================================================== */
+    .service-tagline-section,
+    .service-section,
+    .works-scroll-section,
+    .own-events-section,
+    .message-section,
+    .contact-section {
+      overflow: hidden;
+    }
+    /* 共通：前後に疑似要素でグローを配置 */
+    .service-tagline-section::before,
+    .service-section::before,
+    .service-section::after,
+    .works-scroll-section::before,
+    .works-scroll-section::after,
+    .own-events-section::before,
+    .message-section::before,
+    .message-section::after,
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(80px);
+    }
+    /* tagline — 右上オレンジ */
+    .service-tagline-section::before {
+      width: 420px; height: 420px;
+      top: -80px; right: -60px;
+      background: radial-gradient(circle, rgba(255,140,60,.28) 0%, transparent 70%);
+    }
+    /* service — 左上イエロー / 右下コーラル */
+    .service-section::before {
+      width: 500px; height: 500px;
+      top: -100px; left: -80px;
+      background: radial-gradient(circle, rgba(255,200,60,.25) 0%, transparent 70%);
+    }
+    .service-section::after {
+      width: 380px; height: 380px;
+      bottom: -60px; right: -40px;
+      background: radial-gradient(circle, rgba(255,80,80,.22) 0%, transparent 70%);
+    }
+    /* works — 左中ピンク / 右上オレンジ */
+    .works-scroll-section::before {
+      width: 460px; height: 460px;
+      top: 0; right: -60px;
+      background: radial-gradient(circle, rgba(255,120,100,.24) 0%, transparent 70%);
+    }
+    .works-scroll-section::after {
+      width: 340px; height: 340px;
+      bottom: -40px; left: -40px;
+      background: radial-gradient(circle, rgba(255,170,50,.23) 0%, transparent 70%);
+    }
+    /* own-events — 右側レッド */
+    .own-events-section::before {
+      width: 500px; height: 500px;
+      top: -60px; right: -100px;
+      background: radial-gradient(circle, rgba(240,80,60,.22) 0%, transparent 70%);
+    }
+    /* message — 左上ゴールド / 右下ピーチ */
+    .message-section::before {
+      width: 440px; height: 440px;
+      top: -80px; left: -80px;
+      background: radial-gradient(circle, rgba(255,190,60,.25) 0%, transparent 70%);
+    }
+    .message-section::after {
+      width: 360px; height: 360px;
+      bottom: -60px; right: -60px;
+      background: radial-gradient(circle, rgba(255,100,120,.22) 0%, transparent 70%);
+    }
+    /* contact — 左オレンジ */
+    .contact-section::before {
+      width: 480px; height: 480px;
+      top: -80px; left: -80px;
+      background: radial-gradient(circle, rgba(255,150,60,.14) 0%, transparent 70%);
+    }
+
+    /* =====================================================
        HERO
        ===================================================== */
     .hero {
@@ -649,11 +753,21 @@
       animation: heroZoomIn 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
       transition: transform .22s ease-out;
     }
+    .hero-fade-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 180px;
+      background: linear-gradient(to bottom, transparent 0%, #eeeef0 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
     .hero-overlay {
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to top,    rgba(0,0,0,.80) 0%,   rgba(0,0,0,.30) 45%, rgba(0,0,0,.10) 100%),
+        linear-gradient(to top,    rgba(0,0,0,.45) 0%,   rgba(0,0,0,.15) 45%, rgba(0,0,0,.05) 100%),
         linear-gradient(to bottom, rgba(0,0,0,.45) 0%,   transparent 30%),
         linear-gradient(to right,  rgba(0,0,0,.55) 0%,   transparent 60%);
     }
@@ -1021,12 +1135,40 @@
       text-align: center;
     }
     .service-tagline-text {
-      font-size: clamp(17px, 3.5vw, 28px);
+      font-size: clamp(22px, 5vw, 48px);
       font-weight: 700;
       color: var(--text);
       line-height: 1.7;
       letter-spacing: 0.04em;
       margin: 0;
+      width: 100%;
+    }
+    .tagline-line {
+      display: flex;
+      overflow: hidden;
+    }
+    .tagline-line > .tagline-slide {
+      display: block;
+      opacity: 0;
+      transform: translateX(-120px);
+      white-space: nowrap;
+    }
+    .tagline-line.from-right {
+      justify-content: flex-end;
+    }
+    .tagline-line.from-right > .tagline-slide {
+      transform: translateX(120px);
+    }
+    .tagline-line.animated > .tagline-slide {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .tagline-em {
+      display: inline;
+      font-size: 1.2em;
+      color: var(--yellow);
+      font-weight: 900;
     }
 
     /* =====================================================
@@ -1441,11 +1583,12 @@
 
     /* 3D リングカルーセル */
     .works-stage {
-      height: 320px;
-      perspective: 700px;
+      height: 400px;
+      perspective: 1400px;
       perspective-origin: 50% 50%;
       position: relative;
-      margin-top: 120px;
+      margin-top: 140px;
+      width: 100%;
     }
     @media (max-width: 599px) {
       .works-scroll-section {
@@ -1459,6 +1602,7 @@
       .works-stage {
         order: 2;
         margin-top: 0;
+        height: 300px;
       }
     }
     .works-ring {
@@ -1466,7 +1610,7 @@
       height: 100%;
       position: absolute;
       transform-style: preserve-3d;
-      animation: ringRotate 18s linear infinite;
+      animation: ringRotate 24s linear infinite;
     }
     .works-ring:hover { animation-play-state: paused; }
     @keyframes ringRotate {
@@ -1478,19 +1622,19 @@
       position: absolute;
       top: 0;
       left: 50%;
-      width: 175px;
-      margin-left: -87px;
+      width: 260px;
+      margin-left: -130px;
       background: #ffffff;
       border: 1px solid rgba(0,80,130,.08);
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,.14);
-      transform: rotateY(calc(var(--i) * (360deg / 7))) translateZ(260px);
+      transform: rotateY(calc(var(--i) * (360deg / 7))) translateZ(520px);
       cursor: default;
     }
     .wsc-img {
       width: 100%;
-      height: 120px;
+      height: 150px;
       object-fit: cover;
       object-position: center 65%;
       display: block;
@@ -1500,7 +1644,7 @@
     .wsc:hover .wsc-img { filter: grayscale(0%) brightness(1); transform: scale(1.04); }
     .wsc-img-wrap {
       width: 100%;
-      height: 120px;
+      height: 170px;
       overflow: hidden;
       position: relative;
     }
@@ -2024,6 +2168,29 @@
       letter-spacing: .08em;
       line-height: 1.9;
     }
+    .oe-sns-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      height: 26px;
+      padding: 0 8px;
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 700;
+      vertical-align: middle;
+      transition: opacity .2s;
+    }
+    .oe-sns-btn:hover { opacity: .75; }
+    .oe-note {
+      background: #fff;
+      color: #000;
+      border: 1.5px solid #000;
+    }
+    .oe-instagram {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #fff;
+      border: none;
+    }
     .own-events-link {
       display: inline-flex;
       align-items: center;
@@ -2331,10 +2498,10 @@
     </ul>
 
     <div class="nav-right">
-      <a href="https://www.instagram.com/ringclass0113" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
+      <a href="https://www.instagram.com/ringclass0113" target="_blank" rel="noopener" class="nav-ig nav-ig-instagram" aria-label="Instagram">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="https://note.com/ringclass" target="_blank" rel="noopener" class="nav-ig" aria-label="note">
+      <a href="https://note.com/ringclass" target="_blank" rel="noopener" class="nav-ig nav-ig-note" aria-label="note">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 7v10M8 7l8 10M16 7v10" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span class="nav-note-label">note</span>
       </a>
@@ -2440,6 +2607,7 @@
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
+  <div class="hero-fade-bottom" aria-hidden="true"></div>
   <div class="hero-lights" aria-hidden="true">
     <span class="hero-light b"></span>
     <span class="hero-light c"></span>
@@ -2478,7 +2646,12 @@
 <section class="service-tagline-section">
   <div class="wrap">
     <div class="service-tagline-content">
-      <p class="service-tagline-text">関西エリアを中心にイベント企画から運営までお任せください。</p>
+      <p class="service-tagline-text">
+        <span class="tagline-line"><span class="tagline-slide"><span class="tagline-em">関西エリア</span>を中心に</span></span>
+        <span class="tagline-line from-right"><span class="tagline-slide">イベント<span class="tagline-em">企画</span></span></span>
+        <span class="tagline-line"><span class="tagline-slide">から</span></span>
+        <span class="tagline-line from-right"><span class="tagline-slide"><span class="tagline-em">運営</span>までお任せください。</span></span>
+      </p>
     </div>
   </div>
 </section>
@@ -2695,7 +2868,17 @@
       </div>
     </div>
     <div class="own-events-body rv">
-      <p class="own-events-desc">６月より本格始動。note や Instagram でも公開中。</p>
+      <p class="own-events-desc">６月より本格始動。
+        <a href="https://note.com/ringclass" target="_blank" rel="noopener" class="oe-sns-btn oe-note" aria-label="note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 7v10M8 7l8 10M16 7v10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>note</span>
+        </a>
+        や
+        <a href="#" target="_blank" rel="noopener" class="oe-sns-btn oe-instagram" aria-label="Instagram">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        でも公開中。
+      </p>
       <a href="ens-festa.html" class="own-events-link">過去実績を見る <span>→</span></a>
     </div>
   </div>
@@ -2935,6 +3118,17 @@
     { threshold: 0.10 }
   );
   document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+
+  /* タグライン スライドインアニメーション */
+  const taglineObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const lines = entry.target.querySelectorAll('.tagline-line');
+      lines.forEach(line => line.classList.add('animated'));
+      taglineObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.8 });
+  document.querySelectorAll('.service-tagline-text').forEach(el => taglineObserver.observe(el));
 
   /* カウントアップ（強化版） */
   const countObserver = new IntersectionObserver(entries => {
