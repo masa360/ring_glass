@@ -1420,6 +1420,28 @@
       color: var(--gray3);
       margin-top: 3px;
     }
+    .msg-vision-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 32px;
+      padding: 13px 28px;
+      border: 2px solid var(--yellow);
+      border-radius: 4px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      color: var(--yellow);
+      background: transparent;
+      transition: background .25s, color .25s;
+    }
+    .msg-vision-btn:hover {
+      background: var(--yellow);
+      color: #fff;
+    }
+    .msg-vision-btn svg { transition: transform .25s; }
+    .msg-vision-btn:hover svg { transform: translateX(4px); }
 
     /* メッセージ追記エリア */
     .msg-profile-chips {
@@ -2964,14 +2986,10 @@
           子供達の日々の成長を多くの方に感動と勇気を届け、子供達にとって思い出の1ページになれる裏方でありたいと思っております。<br>
           大人達が子供達を支え、その子供達が大きく成長し次の世代へ思いを繋ぐ循環を作り出す企業を目指しています。
         </blockquote>
-        <div class="msg-sig">
-          <div class="msg-sig-line"></div>
-          <div>
-            <div class="msg-sig-role">代表取締役</div>
-            <div class="msg-sig-name">浅野 貴光</div>
-            <div class="msg-sig-en">Takamitsu Asano, CEO</div>
-          </div>
-        </div>
+        <a href="vision.html" class="msg-vision-btn">
+          私たちの想いとビジョンを読む
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
 
     </div>
