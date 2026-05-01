@@ -684,52 +684,52 @@
     .service-tagline-section::before {
       width: 420px; height: 420px;
       top: -80px; right: -60px;
-      background: radial-gradient(circle, rgba(255,140,60,.28) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,140,60,.18) 0%, transparent 70%);
     }
     /* service — 左上イエロー / 右下コーラル */
     .service-section::before {
       width: 500px; height: 500px;
       top: -100px; left: -80px;
-      background: radial-gradient(circle, rgba(255,200,60,.25) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,200,60,.15) 0%, transparent 70%);
     }
     .service-section::after {
       width: 380px; height: 380px;
       bottom: -60px; right: -40px;
-      background: radial-gradient(circle, rgba(255,80,80,.22) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,80,80,.12) 0%, transparent 70%);
     }
     /* works — 左中ピンク / 右上オレンジ */
     .works-scroll-section::before {
       width: 460px; height: 460px;
       top: 0; right: -60px;
-      background: radial-gradient(circle, rgba(255,120,100,.24) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,120,100,.14) 0%, transparent 70%);
     }
     .works-scroll-section::after {
       width: 340px; height: 340px;
       bottom: -40px; left: -40px;
-      background: radial-gradient(circle, rgba(255,170,50,.23) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,170,50,.13) 0%, transparent 70%);
     }
     /* own-events — 右側レッド */
     .own-events-section::before {
       width: 500px; height: 500px;
       top: -60px; right: -100px;
-      background: radial-gradient(circle, rgba(240,80,60,.22) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(240,80,60,.12) 0%, transparent 70%);
     }
     /* message — 左上ゴールド / 右下ピーチ */
     .message-section::before {
       width: 440px; height: 440px;
       top: -80px; left: -80px;
-      background: radial-gradient(circle, rgba(255,190,60,.25) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,190,60,.15) 0%, transparent 70%);
     }
     .message-section::after {
       width: 360px; height: 360px;
       bottom: -60px; right: -60px;
-      background: radial-gradient(circle, rgba(255,100,120,.22) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,100,120,.12) 0%, transparent 70%);
     }
     /* contact — 左オレンジ */
     .contact-section::before {
       width: 480px; height: 480px;
       top: -80px; left: -80px;
-      background: radial-gradient(circle, rgba(255,150,60,.14) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,150,60,.10) 0%, transparent 70%);
     }
 
     /* =====================================================
@@ -1392,7 +1392,7 @@
       padding-left: 24px;
       margin: 28px 0;
     }
-    .msg-sig {
+.msg-sig {
       display: flex;
       align-items: center;
       gap: 16px;
@@ -1590,20 +1590,46 @@
       margin-top: 140px;
       width: 100%;
     }
-    @media (max-width: 599px) {
+    @media (max-width: 639px) {
       .works-scroll-section {
-        display: flex;
-        flex-direction: column;
+        padding-bottom: clamp(32px, 5vw, 56px);
       }
       .works-scroll-head {
-        order: 1;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
       }
+      /* 3D → 横スクロールスナップに切り替え */
       .works-stage {
-        order: 2;
+        height: auto;
+        perspective: none;
         margin-top: 0;
-        height: 300px;
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
       }
+      .works-stage::-webkit-scrollbar { display: none; }
+      .works-ring {
+        position: static;
+        width: max-content;
+        height: auto;
+        transform-style: flat;
+        animation: none !important;
+        display: flex;
+        gap: 14px;
+        padding: 4px clamp(16px, 5vw, 40px) 20px;
+      }
+      .wsc {
+        position: static;
+        transform: none !important;
+        width: 200px;
+        margin-left: 0;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        box-shadow: 0 4px 16px rgba(0,0,0,.12);
+      }
+      .wsc-img-wrap { height: 130px; }
+      .wsc-img { height: 130px; }
     }
     .works-ring {
       width: 100%;
@@ -2494,6 +2520,7 @@
       <li><a href="#service">SERVICE<span class="nav-ja">事業内容</span></a></li>
       <li><a href="about.html">ABOUT<span class="nav-ja">実績・会社概要</span></a></li>
       <li><a href="#message">MESSAGE<span class="nav-ja">代表メッセージ</span></a></li>
+      <li><a href="vision.html">VISION<span class="nav-ja">社会への約束</span></a></li>
       <li><a href="recruit.html">RECRUIT<span class="nav-ja">採用情報</span></a></li>
     </ul>
 
@@ -2563,6 +2590,16 @@
         <span class="mm-text">
           <span class="mm-en">Gallery</span>
           <span class="mm-ja">ギャラリー</span>
+        </span>
+        <span class="mm-arr">→</span>
+      </a>
+    </div>
+    <div class="mm-item">
+      <a href="vision.html" class="mm-link" onclick="closeMenu()">
+        <span class="mm-num">06</span>
+        <span class="mm-text">
+          <span class="mm-en">Vision</span>
+          <span class="mm-ja">社会への約束</span>
         </span>
         <span class="mm-arr">→</span>
       </a>

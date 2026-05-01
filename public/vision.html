@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VISION — 社会への約束 | 株式会社リングクラス</title>
+  <meta name="description" content="株式会社リングクラスが大切にしている3つの約束。子供たちに表現の場を、地域をつなぐイベントを、次の世代へ思いを繋ぐ。協賛・パートナーシップに関するご案内もこちら。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ringclass.net/vision.html">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://ringclass.net/vision.html">
+  <meta property="og:site_name"   content="株式会社リングクラス">
+  <meta property="og:title"       content="VISION — 社会への約束 | 株式会社リングクラス">
+  <meta property="og:description" content="子供たちに表現の場を。地域をひとつにするイベントを。次の世代へ思いを繋ぐ。株式会社リングクラスの3つの約束。">
+  <meta property="og:image"       content="https://ringclass.net/images/expo_1.jpg">
+  <meta property="og:locale"      content="ja_JP">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* === 変数 ===================================================== */
+    :root {
+      --white:      #ffffff;
+      --black:      #0a2e4a;
+      --text:       #1a3a4f;
+      --yellow:     #0088aa;
+      --bg-body:    #eeeef0;
+      --bg-surface: #ffffff;
+      --pad-v:  clamp(64px, 9vw, 120px);
+      --pad-h:  clamp(20px, 5vw, 64px);
+      --max-w:  1200px;
+      --ease:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* === リセット ================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--bg-body);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      line-height: 1.85;
+      font-size: 15px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* === ユーティリティ ============================================ */
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-h);
+      position: relative;
+      z-index: 2;
+    }
+    .rv {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .85s var(--ease), transform .85s var(--ease);
+    }
+    .rv.on { opacity: 1; transform: none; }
+    .d1 { transition-delay: .10s; }
+    .d2 { transition-delay: .22s; }
+    .d3 { transition-delay: .34s; }
+
+    /* === ナビゲーション ============================================ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      background: rgba(8,40,80,.82);
+      border-bottom: 1px solid rgba(0,180,230,.25);
+      backdrop-filter: blur(18px);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,.38); }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-h);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 510;
+    }
+    .nav-logo img { height: 36px; width: auto; border-radius: 8px; }
+    .nav-logo-text { line-height: 1.2; }
+    .nav-logo-main {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: .07em;
+      color: var(--white);
+    }
+    .nav-logo-sub {
+      font-size: 9px;
+      color: rgba(180,225,255,.75);
+      letter-spacing: .04em;
+    }
+    .nav-links {
+      display: none;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: rgba(220,245,255,.98);
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--yellow);
+      transition: width .3s var(--ease);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active::after { width: 100%; }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 510;
+    }
+    .nav-ig {
+      height: 34px;
+      min-width: 34px;
+      border: 1.5px solid rgba(255,255,255,.75);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,1);
+      padding: 0 10px;
+      gap: 5px;
+      transition: border-color .25s, background .25s, color .25s;
+    }
+    .nav-ig:hover { border-color: var(--yellow); color: var(--yellow); background: rgba(255,255,255,.06); }
+    .nav-ig-instagram {
+      border-color: transparent;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #fff;
+    }
+    .nav-ig-instagram:hover {
+      border-color: transparent;
+      background: linear-gradient(45deg, #e8862a 0%, #d95c32 25%, #ca2038 50%, #ba1a5c 75%, #a81278 100%);
+      color: #fff;
+    }
+    .nav-ig-note { border-color: #fff; background: #fff; color: #000; }
+    .nav-ig-note:hover { border-color: #ddd; background: #f0f0f0; color: #000; }
+    .nav-note-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: rgba(160,220,245,.90);
+      transition: transform .38s var(--ease), opacity .25s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (min-width: 900px) {
+      .nav-links { display: flex; }
+      .hamburger { display: none; }
+    }
+
+    /* === モバイルメニュー ========================================== */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 490;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      overflow: hidden;
+      clip-path: circle(0% at calc(100% - 44px) 34px);
+      transition: clip-path .72s cubic-bezier(0.77, 0, 0.175, 1), visibility .72s;
+      visibility: hidden;
+    }
+    .mobile-menu.open {
+      clip-path: circle(150% at calc(100% - 44px) 34px);
+      visibility: visible;
+    }
+    .mobile-menu::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, transparent 0%, var(--yellow) 40%, var(--yellow) 60%, transparent 100%);
+      opacity: 0;
+      transition: opacity .4s .5s;
+    }
+    .mobile-menu.open::before { opacity: 1; }
+    .mm-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 96px clamp(28px, 8vw, 72px) 32px;
+      gap: 0;
+    }
+    .mm-item {
+      display: block;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0,158,197,.20);
+    }
+    .mm-item:first-child { border-top: 1px solid rgba(255,255,255,.07); }
+    .mm-link {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: clamp(14px, 2.5vh, 20px) 0;
+      transform: translateX(-48px);
+      opacity: 0;
+      transition: transform .6s var(--ease), opacity .6s var(--ease), color .2s;
+    }
+    .mobile-menu.open .mm-link { transform: none; opacity: 1; }
+    .mm-num {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--yellow);
+      letter-spacing: .12em;
+      width: 24px;
+    }
+    .mm-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+    .mm-en {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .mm-ja {
+      font-size: 11px;
+      color: rgba(180,225,255,.55);
+      letter-spacing: .06em;
+    }
+    .mm-arr {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      color: rgba(255,255,255,.25);
+      transition: color .2s, transform .2s;
+    }
+    .mm-link:hover .mm-arr { color: var(--yellow); transform: translateX(6px); }
+    .mm-footer {
+      padding: 24px clamp(28px, 8vw, 72px);
+      border-top: 1px solid rgba(255,255,255,.07);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .mm-sns {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.6);
+      transition: border-color .2s, color .2s;
+    }
+    .mm-sns:hover { border-color: var(--yellow); color: var(--yellow); }
+    .mm-copy {
+      margin-left: auto;
+      font-size: 10px;
+      color: rgba(255,255,255,.25);
+      letter-spacing: .08em;
+    }
+
+    /* === ページヘッダー ============================================ */
+    .page-hero {
+      position: relative;
+      background: linear-gradient(135deg, #0a2e4a 0%, #0d3d5c 50%, #0a2e4a 100%);
+      padding: 140px 0 80px;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(0,136,170,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 80% 30%, rgba(255,140,60,.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-h);
+    }
+    .page-hero-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .page-hero-label::before {
+      content: '';
+      width: 20px; height: 2px;
+      background: var(--yellow);
+    }
+    .page-hero-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .10em;
+      color: rgba(180,225,255,.6);
+      margin-bottom: 32px;
+      transition: color .2s;
+    }
+    .page-hero-back:hover { color: rgba(180,225,255,.95); }
+    .page-hero-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(40px, 7vw, 88px);
+      font-weight: 700;
+      color: #fff;
+      line-height: .9;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .page-hero-title span {
+      display: block;
+      font-size: clamp(16px, 2.5vw, 26px);
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 500;
+      color: rgba(220,245,255,.7);
+      letter-spacing: .12em;
+      margin-top: 14px;
+      text-transform: none;
+    }
+    .page-hero-deco {
+      position: absolute;
+      right: clamp(20px, 6vw, 80px);
+      bottom: 0;
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(80px, 14vw, 180px);
+      font-weight: 700;
+      color: rgba(255,255,255,.04);
+      line-height: 1;
+      letter-spacing: .02em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* === イントロ ================================================= */
+    .intro-section {
+      padding: var(--pad-v) 0 clamp(40px, 6vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+    .intro-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255,160,60,.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .intro-grid {
+      display: grid;
+      gap: clamp(32px, 5vw, 64px);
+    }
+    @media (min-width: 768px) {
+      .intro-grid {
+        grid-template-columns: 1fr 1.4fr;
+        align-items: start;
+      }
+    }
+    .intro-eyecatch {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 600;
+      color: #0a4060;
+      line-height: 1.15;
+      letter-spacing: .03em;
+    }
+    .intro-eyecatch em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+    .intro-text {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(15px, 1.8vw, 18px);
+      font-weight: 400;
+      line-height: 2;
+      color: var(--text);
+    }
+    .intro-text p + p { margin-top: 1.4em; }
+
+    /* === 3つの約束 ================================================ */
+    .promises-section {
+      padding: clamp(40px, 6vw, 80px) 0 var(--pad-v);
+      position: relative;
+    }
+    .promises-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .promises-label::before {
+      content: '';
+      width: 20px; height: 2px;
+      background: var(--yellow);
+    }
+    .promises-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(26px, 4vw, 48px);
+      font-weight: 600;
+      color: #0a4060;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      margin-bottom: clamp(36px, 6vw, 64px);
+    }
+
+    /* 約束カード */
+    .promise-card {
+      display: grid;
+      gap: clamp(24px, 4vw, 48px);
+      padding: clamp(36px, 5vw, 64px) 0;
+      border-top: 1px solid rgba(0,120,170,.15);
+      position: relative;
+    }
+    .promise-card:last-child {
+      border-bottom: 1px solid rgba(0,120,170,.15);
+    }
+    @media (min-width: 768px) {
+      .promise-card {
+        grid-template-columns: 200px 1fr;
+        align-items: start;
+      }
+    }
+    .promise-num-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .promise-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(64px, 10vw, 96px);
+      font-weight: 700;
+      color: rgba(0,136,170,.12);
+      line-height: 1;
+      letter-spacing: .02em;
+    }
+    .promise-en {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      color: var(--yellow);
+    }
+    .promise-body {}
+    .promise-ja-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 600;
+      color: #0a4060;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      letter-spacing: .05em;
+    }
+    .promise-ja-title em {
+      font-style: normal;
+      color: var(--yellow);
+      border-bottom: 2px solid var(--yellow);
+      padding-bottom: 1px;
+    }
+    .promise-desc {
+      font-size: clamp(14px, 1.5vw, 16px);
+      line-height: 2;
+      color: rgba(26,58,79,.85);
+      max-width: 600px;
+    }
+    .promise-desc p + p { margin-top: 1.2em; }
+    .promise-accent {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(0,136,170,.65);
+    }
+    .promise-accent::before {
+      content: '';
+      width: 16px; height: 1px;
+      background: currentColor;
+    }
+
+    /* 約束ごとのグロー */
+    .promise-card:nth-child(1) { background: radial-gradient(ellipse 80% 100% at 10% 50%, rgba(255,140,60,.06) 0%, transparent 70%); }
+    .promise-card:nth-child(2) { background: radial-gradient(ellipse 80% 100% at 90% 50%, rgba(0,136,170,.07) 0%, transparent 70%); }
+    .promise-card:nth-child(3) { background: radial-gradient(ellipse 80% 100% at 10% 50%, rgba(255,190,60,.06) 0%, transparent 70%); }
+
+    /* === 協賛CTA ================================================= */
+    .sponsor-section {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #08283a 0%, #0a3550 60%, #082030 100%);
+      padding: var(--pad-v) 0;
+    }
+    .sponsor-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 70% at 15% 50%, rgba(255,140,60,.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 85% 50%, rgba(0,136,170,.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sponsor-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .sponsor-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .sponsor-label::before,
+    .sponsor-label::after {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--yellow);
+    }
+    .sponsor-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.5;
+      letter-spacing: .06em;
+      margin-bottom: 24px;
+    }
+    .sponsor-desc {
+      font-size: clamp(13px, 1.5vw, 15px);
+      color: rgba(220,245,255,.70);
+      line-height: 2;
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+    .sponsor-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+    .sponsor-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      transition: opacity .2s, transform .2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .sponsor-btn:hover { opacity: .85; transform: translateY(-2px); }
+    .sponsor-btn-primary {
+      background: var(--yellow);
+      color: #fff;
+      border: 2px solid var(--yellow);
+    }
+    .sponsor-btn-secondary {
+      background: transparent;
+      color: rgba(220,245,255,.90);
+      border: 2px solid rgba(220,245,255,.35);
+    }
+    .sponsor-btn-secondary:hover { border-color: rgba(220,245,255,.70); }
+
+    /* === フッター ================================================= */
+    .footer {
+      background: var(--black);
+      color: rgba(255,255,255,.6);
+      padding: clamp(48px, 8vw, 96px) 0 0;
+    }
+    .footer-main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-h) clamp(48px, 6vw, 80px);
+      display: grid;
+      gap: 40px;
+    }
+    @media (min-width: 640px) {
+      .footer-main { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+    }
+    .ft-brand-name {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: .04em;
+      margin-bottom: 4px;
+    }
+    .ft-brand-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      color: rgba(255,255,255,.35);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .ft-brand-catch {
+      font-size: 12px;
+      line-height: 1.9;
+      color: rgba(255,255,255,.45);
+    }
+    .ft-col-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 16px;
+    }
+    .ft-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ft-links a {
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+      transition: color .2s;
+    }
+    .ft-links a:hover { color: rgba(255,255,255,.95); }
+    .ft-info {
+      font-size: 12px;
+      line-height: 1.8;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 10px;
+    }
+    .ft-info a { transition: color .2s; }
+    .ft-info a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 20px var(--pad-h);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .ft-copy {
+      font-size: 11px;
+      color: rgba(255,255,255,.25);
+      letter-spacing: .04em;
+    }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+      font-size: 11px;
+      color: rgba(255,255,255,.3);
+    }
+    .footer-legal a { transition: color .2s; }
+    .footer-legal a:hover { color: rgba(255,255,255,.8); }
+  </style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     ナビゲーション
+     ===================================================== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="株式会社リングクラス ロゴ" decoding="async">
+      <div class="nav-logo-text">
+        <div class="nav-logo-main">RING CLASS</div>
+        <div class="nav-logo-sub">株式会社リングクラス</div>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html#service">SERVICE<span class="nav-ja" style="display:block;font-size:9px;color:rgba(180,225,255,.5);letter-spacing:.04em;font-family:'Noto Sans JP',sans-serif;text-transform:none;font-weight:400">事業内容</span></a></li>
+      <li><a href="about.html">ABOUT<span class="nav-ja" style="display:block;font-size:9px;color:rgba(180,225,255,.5);letter-spacing:.04em;font-family:'Noto Sans JP',sans-serif;text-transform:none;font-weight:400">実績・会社概要</span></a></li>
+      <li><a href="index.html#message">MESSAGE<span class="nav-ja" style="display:block;font-size:9px;color:rgba(180,225,255,.5);letter-spacing:.04em;font-family:'Noto Sans JP',sans-serif;text-transform:none;font-weight:400">代表メッセージ</span></a></li>
+      <li><a href="vision.html" class="active">VISION<span class="nav-ja" style="display:block;font-size:9px;color:rgba(180,225,255,.5);letter-spacing:.04em;font-family:'Noto Sans JP',sans-serif;text-transform:none;font-weight:400">社会への約束</span></a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="https://www.instagram.com/ringclass0113" target="_blank" rel="noopener" class="nav-ig nav-ig-instagram" aria-label="Instagram">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://note.com/ringclass" target="_blank" rel="noopener" class="nav-ig nav-ig-note" aria-label="note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 7v10M8 7l8 10M16 7v10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="nav-note-label">note</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- モバイルメニュー -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="ナビゲーションメニュー">
+  <nav class="mm-nav">
+    <div class="mm-item">
+      <a href="index.html#service" class="mm-link" onclick="closeMenu()">
+        <span class="mm-num">01</span>
+        <span class="mm-text">
+          <span class="mm-en">Service</span>
+          <span class="mm-ja">事業内容</span>
+        </span>
+        <span class="mm-arr">→</span>
+      </a>
+    </div>
+    <div class="mm-item">
+      <a href="about.html" class="mm-link" onclick="closeMenu()">
+        <span class="mm-num">02</span>
+        <span class="mm-text">
+          <span class="mm-en">About</span>
+          <span class="mm-ja">実績・会社概要</span>
+        </span>
+        <span class="mm-arr">→</span>
+      </a>
+    </div>
+    <div class="mm-item">
+      <a href="index.html#message" class="mm-link" onclick="closeMenu()">
+        <span class="mm-num">03</span>
+        <span class="mm-text">
+          <span class="mm-en">Message</span>
+          <span class="mm-ja">代表メッセージ</span>
+        </span>
+        <span class="mm-arr">→</span>
+      </a>
+    </div>
+    <div class="mm-item">
+      <a href="vision.html" class="mm-link" onclick="closeMenu()">
+        <span class="mm-num">04</span>
+        <span class="mm-text">
+          <span class="mm-en">Vision</span>
+          <span class="mm-ja">社会への約束</span>
+        </span>
+        <span class="mm-arr">→</span>
+      </a>
+    </div>
+    <div class="mm-item">
+      <a href="recruit.html" class="mm-link" onclick="closeMenu()">
+        <span class="mm-num">05</span>
+        <span class="mm-text">
+          <span class="mm-en">Recruit</span>
+          <span class="mm-ja">採用情報</span>
+        </span>
+        <span class="mm-arr">→</span>
+      </a>
+    </div>
+  </nav>
+  <div class="mm-footer">
+    <a href="https://www.instagram.com/ringclass0113" target="_blank" rel="noopener" class="mm-sns" aria-label="Instagram">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <span class="mm-copy">© 2026 株式会社リングクラス</span>
+  </div>
+</div>
+
+
+<!-- =====================================================
+     ページヘッダー
+     ===================================================== -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="index.html" class="page-hero-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+      トップページへ
+    </a>
+    <p class="page-hero-label">Our Promise to Society</p>
+    <h1 class="page-hero-title">
+      VISION
+      <span>社会への約束</span>
+    </h1>
+  </div>
+  <div class="page-hero-deco" aria-hidden="true">PROMISE</div>
+</section>
+
+
+<!-- =====================================================
+     イントロ
+     ===================================================== -->
+<section class="intro-section">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="rv">
+        <p class="intro-eyecatch">
+          イベントは<br>
+          <em>一瞬</em>じゃない。<br>
+          記憶になる。
+        </p>
+      </div>
+      <div class="rv d2">
+        <div class="intro-text">
+          <p>
+            私たちがイベントをつくる理由は、「仕事だから」ではありません。<br>
+            子供たちが練習してきたことを、学んできたことを、<br>
+            得意なことを——人前で表現できる場所が必要だと、信じているからです。
+          </p>
+          <p>
+            コンテストのように順位をつけることではなく、<br>
+            「みせること」「参加すること」「つながること」。<br>
+            その体験が、子供たちの人生の1ページになる。<br>
+            そして、その場を支えた大人たちの誇りになる。
+          </p>
+          <p>
+            私たちは3つのことを、これからもずっと大切にしていきます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     3つの約束
+     ===================================================== -->
+<section class="promises-section">
+  <div class="wrap">
+    <p class="promises-label rv">3 Promises</p>
+    <h2 class="promises-title rv d1">私たちの約束</h2>
+
+    <!-- 約束 01 -->
+    <div class="promise-card rv d1">
+      <div class="promise-num-block">
+        <div class="promise-num">01</div>
+        <div class="promise-en">For Children</div>
+      </div>
+      <div class="promise-body">
+        <h3 class="promise-ja-title">
+          子供たちに、<em>「表現の場」</em>を。
+        </h3>
+        <div class="promise-desc">
+          <p>
+            勝ち負けのないイベントの舞台で、子供たちが主役になれる空間をつくります。
+            練習してきたこと、学んできたこと、得意なこと——それを誰かに見てもらえる機会は、
+            子供の自信に、そして成長のきっかけになります。
+          </p>
+          <p>
+            コンテストが主流の中で、私たちは「参加することに意味がある」舞台を届け続けます。
+            En's Festaはその思いから生まれました。
+          </p>
+        </div>
+        <span class="promise-accent">Education &amp; Expression</span>
+      </div>
+    </div>
+
+    <!-- 約束 02 -->
+    <div class="promise-card rv d2">
+      <div class="promise-num-block">
+        <div class="promise-num">02</div>
+        <div class="promise-en">For Community</div>
+      </div>
+      <div class="promise-body">
+        <h3 class="promise-ja-title">
+          地域を、<em>ひとつ</em>にするイベントを。
+        </h3>
+        <div class="promise-desc">
+          <p>
+            親も、子供も、地域の人も、地元の企業も——みんなが同じ時間と空気を共有できる、
+            手触り感のある場をつくります。
+          </p>
+          <p>
+            画面の中だけで完結するのではなく、実際に集まり、顔を見て、笑い合う。
+            そんな「リアルなつながり」こそ、私たちがイベントを通じて届けたいものです。
+            地域活性と社会のつながりを、イベントという形で実現します。
+          </p>
+        </div>
+        <span class="promise-accent">Community &amp; Connection</span>
+      </div>
+    </div>
+
+    <!-- 約束 03 -->
+    <div class="promise-card rv d3">
+      <div class="promise-num-block">
+        <div class="promise-num">03</div>
+        <div class="promise-en">For Next Generation</div>
+      </div>
+      <div class="promise-body">
+        <h3 class="promise-ja-title">
+          次の世代へ、<em>思いを繋ぐ</em>。
+        </h3>
+        <div class="promise-desc">
+          <p>
+            大人が子供を支え、その子供がまた次の世代を支える——そんな循環を、
+            イベントを通じてつくり出すことが私たちの使命です。
+          </p>
+          <p>
+            子供たちの日々の成長を多くの人に届け、感動と勇気の連鎖を生む。
+            私たちは、その「裏方」として、何年先も変わらずここにいます。
+          </p>
+        </div>
+        <span class="promise-accent">Sustainability &amp; Legacy</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =====================================================
+     協賛CTA
+     ===================================================== -->
+<section class="sponsor-section">
+  <div class="wrap">
+    <div class="sponsor-inner rv">
+      <p class="sponsor-label">Partnership</p>
+      <h2 class="sponsor-title">
+        この活動を、<br>
+        一緒に育てませんか。
+      </h2>
+      <p class="sponsor-desc">
+        En's Festaをはじめとする自社企画イベントへの<br>
+        協賛・パートナーシップについてのご相談を承っております。<br>
+        地域への貢献と、企業・ブランドの想いを重ねていきたいと考えています。<br>
+        まずはお気軽にお問い合わせください。
+      </p>
+      <div class="sponsor-btns">
+        <a href="index.html#contact" class="sponsor-btn sponsor-btn-primary">
+          協賛・お問い合わせ
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://note.com/ringclass" target="_blank" rel="noopener" class="sponsor-btn sponsor-btn-secondary">
+          noteで活動を読む
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     フッター
+     ===================================================== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div>
+      <div class="ft-brand-name">株式会社リングクラス</div>
+      <div class="ft-brand-sub">RING CLASS Co., Ltd.</div>
+      <p class="ft-brand-catch">
+        心震わせる感動の空間へ。<br>
+        一緒に奇跡を見届けよう。
+      </p>
+    </div>
+    <div>
+      <p class="ft-col-title">Navigation</p>
+      <ul class="ft-links">
+        <li><a href="index.html#service">Service — 事業内容</a></li>
+        <li><a href="index.html#works">Works — 実績</a></li>
+        <li><a href="about.html">About — 会社概要</a></li>
+        <li><a href="index.html#message">Message — 代表</a></li>
+        <li><a href="vision.html">Vision — 社会への約束</a></li>
+        <li><a href="recruit.html">Recruit — 採用情報</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ft-col-title">Services</p>
+      <ul class="ft-links">
+        <li><a href="index.html#service">イベント企画・制作</a></li>
+        <li><a href="index.html#service">イベント運営管理</a></li>
+        <li><a href="index.html#service">ディレクター・ADサポート</a></li>
+        <li><a href="index.html#service">語学対応スタッフ</a></li>
+        <li><a href="index.html#service">スタッフ手配</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ft-col-title">Contact</p>
+      <div class="ft-info">
+        <a href="tel:07094019107">070-9401-9107</a>
+      </div>
+      <div class="ft-info">
+        <a href="mailto:info@ringclass.net">info@ringclass.net</a>
+      </div>
+      <div class="ft-info">
+        〒564-0051<br>
+        大阪府吹田市<br>
+        エクラート江坂ビル 3階
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="ft-copy">© 2026 株式会社リングクラス. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">サイトポリシー</a>
+      <a href="recruit.html">採用情報</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // ナビスクロール
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // ハンバーガーメニュー
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // スクロールアニメーション
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.rv').forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
