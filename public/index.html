@@ -1738,6 +1738,116 @@
     }
 
     /* =====================================================
+       画像モーダル
+       ===================================================== */
+    .wsc { cursor: pointer; }
+    .wsc:hover .wsc-img { filter: grayscale(0%) brightness(1.05); transform: scale(1.04); }
+
+    #img-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      background: rgba(0,0,0,.88);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    #img-modal.open { display: flex; }
+
+    .modal-inner {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* 閉じるボタン */
+    .modal-close {
+      position: absolute;
+      top: -44px;
+      right: 0;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background .2s;
+      flex-shrink: 0;
+    }
+    .modal-close:hover { background: rgba(255,255,255,.3); }
+
+    /* 画像表示エリア */
+    .modal-img-wrap {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-height: 75vh;
+    }
+    .modal-img-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 8px;
+      user-select: none;
+    }
+
+    /* 前後ボタン（複数画像のとき） */
+    .modal-prev, .modal-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(0,0,0,.5);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background .2s;
+      z-index: 2;
+    }
+    .modal-prev { left: 10px; }
+    .modal-next { right: 10px; }
+    .modal-prev:hover, .modal-next:hover { background: rgba(0,0,0,.8); }
+    .modal-prev.hidden, .modal-next.hidden { display: none; }
+
+    /* ドット */
+    .modal-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .modal-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.35);
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .modal-dot.active { background: #fff; }
+    .modal-dots:empty { display: none; }
+
+    /* タイトル */
+    .modal-title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,.65);
+      letter-spacing: .06em;
+    }
+
+    /* =====================================================
        FOOTER
        ===================================================== */
     .footer {
@@ -2832,8 +2942,10 @@
   <div class="works-stage">
     <div class="works-ring" id="works-ring">
 
-      <!-- 01 -->
-      <div class="wsc" style="--i:0">
+      <!-- 01 万博（複数画像） -->
+      <div class="wsc" style="--i:0"
+           data-images="assets/images/expo_1.jpg,assets/images/expo_2.jpg,assets/images/expo_3.jpg,assets/images/expo_4.jpg"
+           data-title="大阪・関西万博">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="assets/images/expo_1.jpg" alt="大阪・関西万博" loading="lazy">
         </div>
@@ -2844,7 +2956,9 @@
       </div>
 
       <!-- 02 -->
-      <div class="wsc" style="--i:1">
+      <div class="wsc" style="--i:1"
+           data-images="assets/images/deaflympics.jpg"
+           data-title="デフリンピック">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="assets/images/deaflympics.jpg" alt="デフリンピック" loading="lazy">
         </div>
@@ -2855,7 +2969,9 @@
       </div>
 
       <!-- 03 -->
-      <div class="wsc" style="--i:2">
+      <div class="wsc" style="--i:2"
+           data-images="assets/images/live.jpg"
+           data-title="ライブイベント">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="assets/images/live.jpg" alt="ライブイベント" loading="lazy">
         </div>
@@ -2866,7 +2982,9 @@
       </div>
 
       <!-- 04 -->
-      <div class="wsc" style="--i:3">
+      <div class="wsc" style="--i:3"
+           data-images="assets/images/shiyakusyo.jpg"
+           data-title="プロジェクションマッピング">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="assets/images/shiyakusyo.jpg" alt="プロジェクションマッピング" loading="lazy">
         </div>
@@ -2877,7 +2995,9 @@
       </div>
 
       <!-- 05 -->
-      <div class="wsc" style="--i:4">
+      <div class="wsc" style="--i:4"
+           data-images="assets/images/illumination.jpg"
+           data-title="イルミネーション">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="assets/images/illumination.jpg" alt="イルミネーション" loading="lazy">
         </div>
@@ -2888,7 +3008,9 @@
       </div>
 
       <!-- 06 -->
-      <div class="wsc" style="--i:5">
+      <div class="wsc" style="--i:5"
+           data-images="assets/images/soccer.jpg"
+           data-title="国立競技場">
         <div class="wsc-img-wrap">
           <img class="wsc-img" src="assets/images/soccer.jpg" alt="国立競技場" loading="lazy">
         </div>
@@ -2902,6 +3024,26 @@
   </div>
 </section>
 
+
+<!-- 画像モーダル -->
+<div id="img-modal" role="dialog" aria-modal="true" aria-label="画像ビューア">
+  <div class="modal-inner">
+    <button class="modal-close" id="modal-close" aria-label="閉じる">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-img-wrap">
+      <button class="modal-prev hidden" id="modal-prev" aria-label="前の画像">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <img id="modal-img" src="" alt="">
+      <button class="modal-next hidden" id="modal-next" aria-label="次の画像">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    <div class="modal-dots" id="modal-dots"></div>
+    <p class="modal-title" id="modal-title"></p>
+  </div>
+</div>
 
 <!-- =====================================================
      En's Festa — 自社企画イベント
@@ -3636,6 +3778,93 @@
         showToast('通信エラーが発生しました。\nお急ぎの場合は 070-9401-9107 までお電話ください。', 'err');
       } finally {
         btn.classList.remove('loading');
+      }
+    });
+  })();
+
+  /* ===== 画像モーダル ===== */
+  (function () {
+    const modal   = document.getElementById('img-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const dotsEl  = document.getElementById('modal-dots');
+    const prevBtn = document.getElementById('modal-prev');
+    const nextBtn = document.getElementById('modal-next');
+    const closeBtn = document.getElementById('modal-close');
+
+    let images = [];
+    let current = 0;
+
+    function showImage(index) {
+      current = index;
+      modalImg.src = images[current];
+      // ドット更新
+      dotsEl.querySelectorAll('.modal-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+      prevBtn.classList.toggle('hidden', images.length <= 1);
+      nextBtn.classList.toggle('hidden', images.length <= 1);
+    }
+
+    function openModal(card) {
+      images = card.dataset.images.split(',').map(s => s.trim());
+      const title = card.dataset.title || '';
+
+      // ドット生成
+      dotsEl.innerHTML = images.length > 1
+        ? images.map((_, i) => `<span class="modal-dot${i===0?' active':''}"></span>`).join('')
+        : '';
+      dotsEl.querySelectorAll('.modal-dot').forEach((d, i) => {
+        d.addEventListener('click', () => showImage(i));
+      });
+
+      modalTitle.textContent = title;
+      showImage(0);
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      modalImg.src = '';
+    }
+
+    // カードクリック
+    document.querySelectorAll('.wsc[data-images]').forEach(card => {
+      card.addEventListener('click', () => openModal(card));
+    });
+
+    // 前後ボタン
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage((current - 1 + images.length) % images.length);
+    });
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage((current + 1) % images.length);
+    });
+
+    // 閉じる
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowLeft') showImage((current - 1 + images.length) % images.length);
+      if (e.key === 'ArrowRight') showImage((current + 1) % images.length);
+    });
+
+    // スワイプ対応
+    let touchStartX = 0;
+    modalImg.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    modalImg.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) showImage((current + 1) % images.length);
+        else showImage((current - 1 + images.length) % images.length);
       }
     });
   })();
