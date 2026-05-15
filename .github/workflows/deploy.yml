@@ -19,3 +19,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./public/
           server-dir: /ringclass.net/public_html/
+          dangerous-clean-slate: false
