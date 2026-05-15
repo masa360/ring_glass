@@ -11,12 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
+
       - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./public/
-          server-dir: ringclass.net/public_html/
-          dangerous-clean-slate: false
+        run: |
+          lftp -c "
+          set ftp:ssl-allow yes;
+          set ssl:verify-certificate no;
+          open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }};
+          mirror -R --delete --verbose ./public/ ringclass.net/public_html/;
+          bye;
+          "
