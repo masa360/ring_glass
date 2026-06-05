@@ -1145,25 +1145,26 @@
     }
     .tagline-line {
       display: flex;
-      overflow: hidden;
+      justify-content: center;
     }
     .tagline-line > .tagline-slide {
       display: block;
       opacity: 0;
-      transform: translateX(-120px);
+      transform: translateY(20px);
       white-space: nowrap;
     }
     .tagline-line.from-right {
-      justify-content: flex-end;
-    }
-    .tagline-line.from-right > .tagline-slide {
-      transform: translateX(120px);
+      justify-content: center;
     }
     .tagline-line.animated > .tagline-slide {
       opacity: 1;
-      transform: translateX(0);
-      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
+    .tagline-line:nth-child(1).animated > .tagline-slide { transition-delay: 0s; }
+    .tagline-line:nth-child(2).animated > .tagline-slide { transition-delay: 0.15s; }
+    .tagline-line:nth-child(3).animated > .tagline-slide { transition-delay: 0.3s; }
+    .tagline-line:nth-child(4).animated > .tagline-slide { transition-delay: 0.45s; }
     .tagline-em {
       display: inline;
       font-size: 1.2em;
@@ -3313,7 +3314,7 @@
       lines.forEach(line => line.classList.add('animated'));
       taglineObserver.unobserve(entry.target);
     });
-  }, { threshold: 0.8 });
+  }, { threshold: 0.3 });
   document.querySelectorAll('.service-tagline-text').forEach(el => taglineObserver.observe(el));
 
   /* カウントアップ（強化版） */
